@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoShield Pest Control Services | Gold Coast</title>
+    <meta name="description" content="Eco-friendly pest control in Gold Coast. Same-day service for ants, cockroaches, spiders, rodents, and more. Kid & pet-safe treatments. Call 0416 013 145.">
+    <meta name="keywords" content="Pest Control Gold Coast, Eco-friendly pest control Gold Coast, Same day pest control Gold Coast, Cockroach control, Ant control, Spider control">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        secondary: '#0f172a',
+                        accent: '#f59e0b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.6));
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .pest-detail-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pest-detail-content.active {
+            max-height: 1000px;
+            opacity: 1;
+        }
+        .pest-card.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+        .pest-card.active {
+            border-color: #22c55e;
+            box-shadow: 0 10px 40px rgba(34, 197, 94, 0.15);
+        }
+        .mobile-sticky-btn {
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .floating-call-btn {
+            animation: pulse-slow 2s infinite;
+        }
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        .offer-badge {
+            animation: bounce-slow 2s infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #22c55e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 antialiased bg-slate-50">
+
+    <!-- Sticky Header -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-primary-600 text-3xl"></i>
+                        <div class="flex flex-col">
+                            <span class="font-heading font-bold text-xl text-slate-900 leading-none">EcoShield</span>
+                            <span class="text-xs text-primary-600 font-medium tracking-wider">PEST CONTROL</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-slate-600 hover:text-primary-600 font-medium transition">Services</a>
+                    <a href="#offers" class="text-slate-600 hover:text-primary-600 font-medium transition flex items-center gap-1">
+                        <span class="w-2 h-2 bg-accent rounded-full"></span>
+                        Special Offers
+                    </a>
+                    <a href="#why-us" class="text-slate-600 hover:text-primary-600 font-medium transition">Why Us</a>
+                    <a href="#about" class="text-slate-600 hover:text-primary-600 font-medium transition">About</a>
+                    <a href="#reviews" class="text-slate-600 hover:text-primary-600 font-medium transition">Reviews</a>
+                    <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg hover:shadow-primary-500/30 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> Enquire Now
+                    </button>
+                    <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i> 0416 013 145
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-3">
+                    <a href="tel:0416013145" class="bg-primary-600 text-white p-2.5 rounded-full">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="#services" class="block px-3 py-3 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-lg">Services</a>
+                <a href="#offers" class="block px-3 py-3 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-lg flex items-center gap-2">
+                    <span class="w-2 h-2 bg-accent rounded-full"></span>
+                    Special Offers
+                </a>
+                <a href="#why-us" class="block px-3 py-3 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-lg">Why Us</a>
+                <a href="#about" class="block px-3 py-3 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-lg">About</a>
+                <a href="#reviews" class="block px-3 py-3 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-lg">Reviews</a>
+                <button onclick="openModal()" class="block w-full text-center mt-4 bg-primary-600 text-white px-4 py-3 rounded-lg font-bold">
+                    <i class="fa-solid fa-envelope mr-2"></i> Enquire Now
+                </button>
+                <a href="tel:0416013145" class="block w-full text-center mt-2 bg-secondary text-white px-4 py-3 rounded-lg font-bold">
+                    <i class="fa-solid fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1fcf92554-7461-43a3-b206-7389bcea6291.png" alt="Friendly technician with family" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="md:w-2/3 lg:w-1/2">
+                <div class="inline-flex items-center gap-2 bg-accent/90 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 offer-badge">
+                    <span class="text-white text-sm font-bold uppercase tracking-wide">⚡ Limited Spots Each Day - Book Now!</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
+                    Eco-Friendly Pest Control <span class="text-primary-400">You Can Trust</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-8 leading-relaxed">
+                    Serving Gold Coast families for 10+ years. Safe for kids & pets, guaranteed results, and 24/7 local support.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg hover:shadow-primary-500/40 transform hover:-translate-y-1">
+                        Get a Free Quote
+                    </button>
+                    <a href="tel:0416013145" class="bg-white hover:bg-slate-100 text-slate-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone text-primary-600"></i> Call Now
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex flex-wrap items-center gap-6 text-slate-300 text-sm font-medium justify-center md:justify-start">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-primary-400"></i> Licensed & Insured
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle text-primary-400"></i> Eco-Safe Methods
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-star text-yellow-400"></i> 5-Star Rated
+                    </div>
+                    <div class="flex items-center gap-2 bg-primary-600/30 px-3 py-1 rounded-full">
+                        <i class="fa-solid fa-clock text-accent"></i> Same-Day Available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="offers" class="py-16 bg-gradient-to-r from-primary-600 to-primary-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-accent text-white font-bold px-4 py-2 rounded-full mb-4 offer-badge">
+                    🔥 LIMITED TIME OFFER
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Affordable Pest Control Packages</h2>
+                <p class="text-primary-100 text-lg max-w-2xl mx-auto">Professional eco-friendly pest control at unbeatable prices. Book today and protect your home!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Offer 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Small Home / Apartment</h3>
+                            <p class="text-slate-500">Up to 3 bedrooms</p>
+                        </div>
+                        <div class="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full">
+                            SAVE 20%
+                        </div>
+                    </div>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-5xl font-heading font-bold text-primary-600">$159</span>
+                        <span class="text-slate-400 line-through text-xl">$199</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            General pest spray (ants, spiders, cockroaches)
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Interior & exterior treatment
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Pet & kid safe products
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Warranty included
+                        </li>
+                    </ul>
+                    <button onclick="openModal()" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition shadow-lg hover:shadow-primary-500/30">
+                        Book Now - $159
+                    </button>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition duration-300 border-4 border-accent relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white font-bold px-6 py-2 rounded-full">
+                        MOST POPULAR
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Large Home</h3>
+                            <p class="text-slate-500">4+ bedrooms</p>
+                        </div>
+                        <div class="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full">
+                            SAVE 25%
+                        </div>
+                    </div>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-5xl font-heading font-bold text-primary-600">$199</span>
+                        <span class="text-slate-400 line-through text-xl">$269</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Complete general pest spray
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Full interior & exterior coverage
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Pet & kid safe eco products
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Extended warranty
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-600">
+                            <i class="fa-solid fa-check text-primary-500"></i>
+                            Free follow-up inspection
+                        </li>
+                    </ul>
+                    <button onclick="openModal()" class="w-full bg-accent hover:bg-yellow-600 text-white font-bold py-4 rounded-xl transition shadow-lg">
+                        Book Now - $199
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <p class="text-primary-100">
+                    <i class="fa-solid fa-phone mr-2"></i>
+                    Call <a href="tel:0416013145" class="font-bold underline">0416 013 145</a> to claim your offer!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Strip -->
+    <div class="bg-white border-b border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-leaf text-3xl text-primary-600 mb-2"></i>
+                    <h3 class="font-bold text-slate-800">100% Eco-Friendly</h3>
+                    <p class="text-sm text-slate-500">Safe for pets & kids</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-clock text-3xl text-primary-600 mb-2"></i>
+                    <h3 class="font-bold text-slate-800">Same-Day Service</h3>
+                    <p class="text-sm text-slate-500">Fast response times</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-certificate text-3xl text-primary-600 mb-2"></i>
+                    <h3 class="font-bold text-slate-800">Licensed Experts</h3>
+                    <p class="text-sm text-slate-500">10+ Years Experience</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-shield-heart text-3xl text-primary-600 mb-2"></i>
+                    <h3 class="font-bold text-slate-800">Service Warranty</h3>
+                    <p class="text-sm text-slate-500">Guaranteed protection</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Consultation Section -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full mb-4">
+                        FREE CONSULTATION
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">Free Consultation & Custom Treatment Plans</h2>
+                    <p class="text-slate-600 text-lg mb-8">
+                        Every property is unique, and so is our approach. We provide free inspections and develop custom treatment plans tailored to your specific pest problems.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Free Property Inspection</h4>
+                                <p class="text-slate-600">Our experts thoroughly inspect your property to identify pest entry points and infestation levels at no cost.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-clipboard-list text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Custom Treatment Plan</h4>
+                                <p class="text-slate-600">We create a tailored plan based on pest type, infestation severity, and your property's unique characteristics.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-leaf text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Eco-Friendly Methods</h4>
+                                <p class="text-slate-600">All treatments use environmentally safe products that protect your family, pets, and the local ecosystem.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-shield-cat text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Safe for Kids & Pets</h4>
+                                <p class="text-slate-600">Our products are carefully selected to be non-toxic and safe once dry, giving you peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex gap-4">
+                        <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-full transition shadow-lg">
+                            Book Free Inspection
+                        </button>
+                        <a href="tel:0416013145" class="bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold py-4 px-8 rounded-full transition flex items-center gap-2">
+                            <i class="fa-solid fa-phone"></i> 0416 013 145
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-primary-100 rounded-3xl transform rotate-3 -z-10"></div>
+                    <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10acbab1b-be57-4f90-b30d-95ab13b04d6a.png" alt="Technician consulting with family" class="rounded-2xl shadow-xl w-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary-600 font-bold tracking-wide uppercase text-sm mb-3">Our Services</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4">Complete Pest Protection</h3>
+                <p class="text-slate-600 text-lg">Click on any pest type below to learn more about our eco-safe treatment process.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Ants Card -->
+                <div class="pest-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 cursor-pointer" onclick="togglePestCard('ants')">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-ant text-2xl text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Ant Control</h4>
+                                <p class="text-sm text-slate-500">Eliminate colonies at the source</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
+                    </div>
+                    <div id="ants-detail" class="pest-detail-content bg-slate-50">
+                        <div class="p-6 pt-0">
+                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/13187e3fc-3ae8-414a-ba13-6894eb932c15.png" alt="Ant Control" class="w-full h-48 object-cover rounded-xl mb-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-accent"></i>
+                                        The Problem
+                                    </h5>
+                                    <p class="text-slate-600 text-sm mb-4">Ants can quickly infest your home, contaminating food and creating unsightly trails. Colonies can have thousands of workers with hidden nests.</p>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-flask text-primary-600"></i>
+                                        Our Treatment Process
+                                    </h5>
+                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                        <li>Thorough inspection to locate nests and trails</li>
+                                        <li>Application of eco-friendly gel baits</li>
+                                        <li>Barrier treatment around entry points</li>
+                                        <li>Follow-up inspection if needed</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-cat text-primary-600"></i>
+                                        Safety Measures
+                                    </h5>
+                                    <ul class="text-slate-600 text-sm space-y-2 mb-4">
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Pet-safe gel formulations</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Non-toxic to children once dry</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>No harsh chemical odors</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Environmentally responsible</li>
+                                    </ul>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-clock text-primary-600"></i>
+                                        Results & Duration
+                                    </h5>
+                                    <p class="text-slate-600 text-sm">Visible reduction within 24-48 hours. Complete colony elimination in 5-7 days. Treatment includes warranty coverage.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-4">
+                                <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                                    Get Quote
+                                </button>
+                                <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cockroaches Card -->
+                <div class="pest-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 cursor-pointer" onclick="togglePestCard('cockroaches')">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-bug text-2xl text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Cockroach Control</h4>
+                                <p class="text-sm text-slate-500">Fast elimination of all species</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
+                    </div>
+                    <div id="cockroaches-detail" class="pest-detail-content bg-slate-50">
+                        <div class="p-6 pt-0">
+                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/13b00850e-5adc-423d-a2dd-8223c9657eb9.png" alt="Cockroach Control" class="w-full h-48 object-cover rounded-xl mb-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-accent"></i>
+                                        The Problem
+                                    </h5>
+                                    <p class="text-slate-600 text-sm mb-4">Cockroaches spread bacteria, trigger allergies, and reproduce rapidly. German and American roaches are common in Gold Coast homes.</p>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-flask text-primary-600"></i>
+                                        Our Treatment Process
+                                    </h5>
+                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                        <li>Identify species and harborage areas</li>
+                                        <li>Apply odorless residual spray to surfaces</li>
+                                        <li>Place gel baits in cracks and crevices</li>
+                                        <li>Treat outdoor areas to prevent re-entry</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-cat text-primary-600"></i>
+                                        Safety Measures
+                                    </h5>
+                                    <ul class="text-slate-600 text-sm space-y-2 mb-4">
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Kitchen-safe formulations</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Odorless and stain-free</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Safe for pets after drying</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Low toxicity products</li>
+                                    </ul>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-clock text-primary-600"></i>
+                                        Results & Duration
+                                    </h5>
+                                    <p class="text-slate-600 text-sm">Significant reduction within 24 hours. Complete elimination in 1-2 weeks. Protection includes warranty coverage.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-4">
+                                <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                                    Get Quote
+                                </button>
+                                <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spiders Card -->
+                <div class="pest-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 cursor-pointer" onclick="togglePestCard('spiders')">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-spider text-2xl text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Spider Control</h4>
+                                <p class="text-sm text-slate-500">Web removal & residual protection</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
+                    </div>
+                    <div id="spiders-detail" class="pest-detail-content bg-slate-50">
+                        <div class="p-6 pt-0">
+                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1e2f0745e-24bb-46fa-94bd-7a066c74f32c.png" alt="Spider Control" class="w-full h-48 object-cover rounded-xl mb-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-accent"></i>
+                                        The Problem
+                                    </h5>
+                                    <p class="text-slate-600 text-sm mb-4">Spiders including Huntsmans and Redbacks can invade homes. While most are harmless, they create webs and can be frightening for families.</p>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-flask text-primary-600"></i>
+                                        Our Treatment Process
+                                    </h5>
+                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                        <li>Remove existing webs from all areas</li>
+                                        <li>Apply residual spray to interior surfaces</li>
+                                        <li>Treat exterior perimeter and entry points</li>
+                                        <li>Focus on roof voids and subfloor areas</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-cat text-primary-600"></i>
+                                        Safety Measures
+                                    </h5>
+                                    <ul class="text-slate-600 text-sm space-y-2 mb-4">
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Low-odor formulations</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Safe for children and pets</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>No staining on surfaces</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Environmentally conscious</li>
+                                    </ul>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-clock text-primary-600"></i>
+                                        Results & Duration
+                                    </h5>
+                                    <p class="text-slate-600 text-sm">Immediate web removal. Residual protection kills spiders on contact. Full warranty included.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-4">
+                                <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                                    Get Quote
+                                </button>
+                                <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rodents Card -->
+                <div class="pest-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 cursor-pointer" onclick="togglePestCard('rodents')">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-rat text-2xl text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Rodent Control</h4>
+                                <p class="text-sm text-slate-500">Humane trapping & exclusion</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
+                    </div>
+                    <div id="rodents-detail" class="pest-detail-content bg-slate-50">
+                        <div class="p-6 pt-0">
+                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1dedd4a89-ddda-414e-a536-ca1b294039d4.png" alt="Rodent Control" class="w-full h-48 object-cover rounded-xl mb-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-accent"></i>
+                                        The Problem
+                                    </h5>
+                                    <p class="text-slate-600 text-sm mb-4">Rats and mice cause property damage, contaminate food, and spread diseases. They can squeeze through tiny gaps and multiply quickly.</p>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-flask text-primary-600"></i>
+                                        Our Treatment Process
+                                    </h5>
+                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                        <li>Inspect for entry points and activity signs</li>
+                                        <li>Set humane traps in strategic locations</li>
+                                        <li>Seal entry points to prevent re-entry</li>
+                                        <li>Remove and dispose of captured rodents</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-cat text-primary-600"></i>
+                                        Safety Measures
+                                    </h5>
+                                    <ul class="text-slate-600 text-sm space-y-2 mb-4">
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Humane trapping methods</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Child-proof bait stations</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Pet-safe placement</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>No toxic sprays indoors</li>
+                                    </ul>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-clock text-primary-600"></i>
+                                        Results & Duration
+                                    </h5>
+                                    <p class="text-slate-600 text-sm">Traps checked within 48 hours. Most infestations resolved in 1-2 weeks. Proofing provides long-term protection with warranty.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-4">
+                                <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                                    Get Quote
+                                </button>
+                                <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fleas Card -->
+                <div class="pest-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 cursor-pointer" onclick="togglePestCard('fleas')">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-dog text-2xl text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Flea Control</h4>
+                                <p class="text-sm text-slate-500">Complete life cycle elimination</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
+                    </div>
+                    <div id="fleas-detail" class="pest-detail-content bg-slate-50">
+                        <div class="p-6 pt-0">
+                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/18b8c3a99-62b3-4019-a365-d4e30d6b36d0.png" alt="Flea Control" class="w-full h-48 object-cover rounded-xl mb-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-accent"></i>
+                                        The Problem
+                                    </h5>
+                                    <p class="text-slate-600 text-sm mb-4">Fleas cause itchy bites for humans and pets. A single female can lay hundreds of eggs, creating rapid infestations in carpets and pet bedding.</p>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-flask text-primary-600"></i>
+                                        Our Treatment Process
+                                    </h5>
+                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                        <li>Treat all carpets and soft furnishings</li>
+                                        <li>Apply growth regulator to break life cycle</li>
+                                        <li>Treat outdoor areas where pets rest</li>
+                                        <li>Follow-up treatment if necessary</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-cat text-primary-600"></i>
+                                        Safety Measures
+                                    </h5>
+                                    <ul class="text-slate-600 text-sm space-y-2 mb-4">
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Safe for pets after drying</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Non-staining formulas</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Low odor products</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Family-friendly treatment</li>
+                                    </ul>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-clock text-primary-600"></i>
+                                        Results & Duration
+                                    </h5>
+                                    <p class="text-slate-600 text-sm">Adult fleas killed within hours. Eggs and larvae eliminated over 2-3 weeks. Complete control typically achieved in one treatment with warranty.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-4">
+                                <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                                    Get Quote
+                                </button>
+                                <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wasps Card -->
+                <div class="pest-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 cursor-pointer" onclick="togglePestCard('wasps')">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-bug text-2xl text-primary-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">Wasp & Bee Removal</h4>
+                                <p class="text-sm text-slate-500">Safe nest elimination</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
+                    </div>
+                    <div id="wasps-detail" class="pest-detail-content bg-slate-50">
+                        <div class="p-6 pt-0">
+                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1818fe240-539c-4c79-b13d-d7ce772f205d.png" alt="Wasp Control" class="w-full h-48 object-cover rounded-xl mb-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-accent"></i>
+                                        The Problem
+                                    </h5>
+                                    <p class="text-slate-600 text-sm mb-4">Wasps and bees can build nests in roofs, walls, and trees. Stings can be dangerous, especially for those with allergies. Nests grow rapidly in summer.</p>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-flask text-primary-600"></i>
+                                        Our Treatment Process
+                                    </h5>
+                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                        <li>Assess nest location and accessibility</li>
+                                        <li>Apply targeted treatment at dusk/dawn</li>
+                                        <li>Remove nest after insects are eliminated</li>
+                                        <li>Treat area to prevent rebuilding</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-cat text-primary-600"></i>
+                                        Safety Measures
+                                    </h5>
+                                    <ul class="text-slate-600 text-sm space-y-2 mb-4">
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Professional protective equipment</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Safe distance treatment</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Family kept indoors during treatment</li>
+                                        <li><i class="fa-solid fa-check text-primary-500 mr-2"></i>Complete nest removal</li>
+                                    </ul>
+                                    
+                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-clock text-primary-600"></i>
+                                        Results & Duration
+                                    </h5>
+                                    <p class="text-slate-600 text-sm">Nest activity stops within 24 hours. Complete removal same day or next visit. Guaranteed nest elimination with warranty.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex gap-4">
+                                <button onclick="openModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                                    Get Quote
+                                </button>
+                                <a href="tel:0416013145" class="bg-secondary hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2">
+                                    <i class="fa-solid fa-phone"></i> Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-primary-600 font-bold tracking-wide uppercase text-sm mb-3">Why EcoShield?</h2>
+                    <h3 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">Gold Coast's Most Trusted Local Experts</h3>
+                    <p class="text-slate-600 text-lg mb-8">
+                        We don't just spray chemicals; we solve problems. Our integrated pest management approach ensures your home is safe, clean, and pest-free for the long term.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-user-shield text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Licensed & Trained Technicians</h4>
+                                <p class="text-slate-600">Our team undergoes rigorous training to handle any pest situation safely and effectively.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-paw text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Kid & Pet Safe Treatments</h4>
+                                <p class="text-slate-600">We prioritize non-toxic, eco-friendly solutions that protect your loved ones.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                                <i class="fa-solid fa-clock-rotate-left text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Same-Day & 24/7 Support</h4>
+                                <p class="text-slate-600">Pests don't wait, and neither do we. We offer rapid response times for urgent issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1fcf92554-7461-43a3-b206-7389bcea6291.png" alt="Female technician" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                    <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/11aa2c5ac-f695-4424-bfe7-5228a49212b5.png" alt="Male technician inspecting" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                    <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10c53d836-fd8e-4c36-8539-0f669acf86ae.png" alt="Technician spraying" class="rounded-2xl shadow-lg w-full h-64 object-cover col-span-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">Locally Owned & Operated</h2>
+            <div class="max-w-3xl mx-auto text-slate-300 text-lg leading-relaxed mb-10">
+                <p class="mb-4">
+                    EcoShield Pest Control Services has been proudly serving the Gold Coast community for over a decade. We started with a simple mission: to provide effective pest control without compromising the health of families or the environment.
+                </p>
+                <p>
+                    Our strong reputation is built on reliability, transparency, and results. We treat every home as if it were our own, ensuring a pest-free environment where you can relax and enjoy your Gold Coast lifestyle.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-slate-700 pt-10">
+                <div>
+                    <div class="text-4xl font-bold text-primary-500 mb-2">10+</div>
+                    <div class="text-slate-400">Years Experience</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-500 mb-2">500+</div>
+                    <div class="text-slate-400">5-Star Reviews</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-500 mb-2">100%</div>
+                    <div class="text-slate-400">Satisfaction Guaranteed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-500 mb-2">24/7</div>
+                    <div class="text-slate-400">Local Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900">What Our Customers Say</h2>
+                <p class="text-slate-600 mt-4">Real reviews from Gold Coast locals</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic">"Had a massive spider problem before summer. EcoShield came out the same day, treated the whole house, and I haven't seen a single spider since. Highly recommend!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600">SJ</div>
+                        <div>
+                            <div class="font-bold text-slate-900">Sarah Jenkins</div>
+                            <div class="text-xs text-slate-500">Burleigh Heads</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic">"Very professional technician. He explained everything clearly and made sure our cats were safe during the treatment. Great service."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600">MT</div>
+                        <div>
+                            <div class="font-bold text-slate-900">Mike Thompson</div>
+                            <div class="text-xs text-slate-500">Southport</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic">"Found ants in the kitchen pantry. Called EcoShield in the morning, they were here by afternoon. Problem solved instantly. Fair pricing too."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600">EL</div>
+                        <div>
+                            <div class="font-bold text-slate-900">Emma Lewis</div>
+                            <div class="text-xs text-slate-500">Robina</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Map -->
+    <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="p-8 md:p-12">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-map-location-dot text-primary-600"></i>
+                        Areas We Service
+                    </h3>
+                    <p class="text-slate-600 mb-8">We cover the entire Gold Coast region, from the northern suburbs down to the border. Same-day service available in all areas.</p>
+                </div>
+                <div class="relative">
+                    <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/16e1b1e19-1e0d-40f7-b58f-2b363d00c1b3.png" alt="Gold Coast Service Area Map" class="w-full h-96 object-cover">
+                    <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                            <span class="font-bold text-slate-800">Service Area</span>
+                        </div>
+                        <p class="text-sm text-slate-600">Full coverage across Gold Coast</p>
+                    </div>
+                </div>
+                <div class="p-8 md:p-12">
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-primary-500"></i>
+                            <span>Surfers Paradise</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-primary-500"></i>
+                            <span>Broadbeach</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-primary-500"></i>
+                            <span>Southport</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-primary-500"></i>
+                            <span>Robina</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-primary-500"></i>
+                            <span>Burleigh Heads</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <i class="fa-solid fa-location-dot text-primary-500"></i>
+                            <span>Coolangatta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-heading font-bold text-center text-slate-900 mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq1')">
+                        <span class="font-bold text-slate-800">Are your treatments safe for kids and pets?</span>
+                        <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq1"></i>
+                    </button>
+                    <div id="faq1" class="accordion-content bg-white px-6">
+                        <div class="py-4 text-slate-600">
+                            Yes, absolutely. We prioritize eco-friendly, low-toxicity treatments that are safe for children and pets once dry. We always provide specific safety instructions before we begin.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq2')">
+                        <span class="font-bold text-slate-800">Do you offer same-day service?</span>
+                        <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq2"></i>
+                    </button>
+                    <div id="faq2" class="accordion-content bg-white px-6">
+                        <div class="py-4 text-slate-600">
+                            Yes, we offer same-day service for most urgent pest problems. Contact us to check availability. Limited spots available each day!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq3')">
+                        <span class="font-bold text-slate-800">Do you provide warranties?</span>
+                        <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq3"></i>
+                    </button>
+                    <div id="faq3" class="accordion-content bg-white px-6">
+                        <div class="py-4 text-slate-600">
+                            Yes, most of our general pest control services come with a warranty. If the pests return within the warranty period, we will return and retreat at no extra cost.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq4')">
+                        <span class="font-bold text-slate-800">How long does the treatment last?</span>
+                        <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq4"></i>
+                    </button>
+                    <div id="faq4" class="accordion-content bg-white px-6">
+                        <div class="py-4 text-slate-600">
+                            Our residual treatments provide long-lasting protection depending on the pest type and environmental conditions. We recommend annual inspections for ongoing protection.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">Get a Free Quote</h2>
+                    <p class="text-slate-600 text-lg mb-8">Fill out the form or call us directly. We respond to all enquiries within 1 hour during business hours.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Call Us Now</h4>
+                                <a href="tel:0416013145" class="text-primary-600 font-bold text-lg hover:underline">0416 013 145</a>
+                                <p class="text-sm text-slate-500">24/7 Customer Support</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Email Us</h4>
+                                <a href="mailto:ecoshieldservices.au@gmail.com" class="text-primary-600 font-bold hover:underline">ecoshieldservices.au@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Service Area</h4>
+                                <p class="text-slate-600">Gold Coast & Surrounding Suburbs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-primary-100 rounded-xl">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-clock text-accent text-xl"></i>
+                            <span class="font-bold text-slate-900">Same-Day Service Available</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">Contact us today to secure your spot. Limited availability each day!</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Phone *</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="04XX XXX XXX">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Email *</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="your@email.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Pest Type *</label>
+                            <select required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition bg-white">
+                                <option value="">Select a pest type</option>
+                                <option>General Pests (Ants, Spiders, etc.)</option>
+                                <option>Cockroaches</option>
+                                <option>Rodents (Rats/Mice)</option>
+                                <option>Fleas</option>
+                                <option>Wasps/Bees</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="Tell us about your pest problem..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-primary-500/30 transition transform hover:-translate-y-1">
+                            Request Free Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800 pb-24 md:pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-shield-halved text-primary-500 text-2xl"></i>
+                        <span class="font-heading font-bold text-xl text-white">EcoShield</span>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">Eco-friendly pest control solutions for Gold Coast homes and businesses.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-primary-400 transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-primary-400 transition">Services</a></li>
+                        <li><a href="#offers" class="hover:text-primary-400 transition">Special Offers</a></li>
+                        <li><a href="#about" class="hover:text-primary-400 transition">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-primary-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-primary-400 transition">Ant Control</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition">Cockroach Control</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition">Spider Control</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition">Rodent Control</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition">Flea Control</a></li>
+                        <li><a href="#" class="hover:text-primary-400 transition">Wasp Removal</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-primary-500"></i> 0416 013 145</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-primary-500"></i> ecoshieldservices.au@gmail.com</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-primary-500"></i> Gold Coast, QLD</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2023 EcoShield Pest Control Services. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Call Button -->
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-40 mobile-sticky-btn flex gap-4">
+        <a href="tel:0416013145" class="flex-1 bg-primary-600 text-white text-center font-bold py-3 rounded-lg shadow-md flex items-center justify-center gap-2">
+            <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+        <button onclick="openModal()" class="flex-1 bg-secondary text-white text-center font-bold py-3 rounded-lg shadow-md">
+            Enquire Now
+        </button>
+    </div>
+
+    <!-- Floating Call Button (Desktop) -->
+    <a href="tel:0416013145" class="hidden md:flex fixed bottom-6 right-6 bg-primary-600 hover:bg-primary-700 text-white p-4 rounded-full shadow-2xl z-40 floating-call-btn transition transform hover:scale-110 items-center gap-3">
+        <i class="fa-solid fa-phone text-xl"></i>
+        <span class="font-bold">Call Now</span>
+    </a>
+
+    <!-- Quick Enquiry Modal -->
+    <div id="enquiryModal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-overlay absolute inset-0" onclick="closeModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg mx-4">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="bg-primary-600 p-6 flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Get a Free Quote</h3>
+                        <p class="text-primary-100 text-sm">We'll respond within 1 hour!</p>
+                    </div>
+                    <button onclick="closeModal()" class="text-white hover:text-primary-100 transition">
+                        <i class="fa-solid fa-xmark text-2xl"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <form onsubmit="event.preventDefault(); closeModal(); alert('Thank you! We will contact you shortly.');">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="Your Name">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Phone *</label>
+                            <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="04XX XXX XXX">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Pest Type *</label>
+                            <select required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition bg-white">
+                                <option value="">Select a pest type</option>
+                                <option>General Pests</option>
+                                <option>Cockroaches</option>
+                                <option>Ants</option>
+                                <option>Spiders</option>
+                                <option>Rodents</option>
+                                <option>Fleas</option>
+                                <option>Wasps</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition" placeholder="Tell us about your pest problem..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-lg shadow-lg transition">
+                            Submit Enquiry
+                        </button>
+                        <p class="text-center text-xs text-slate-500 mt-4">
+                            <i class="fa-solid fa-lock mr-1"></i> Your information is secure
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Accordion Logic
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            document.querySelectorAll('.accordion-content').forEach(el => {
+                if(el.id !== id) {
+                    el.classList.remove('active');
+                    el.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                }
+            });
+
+            content.classList.toggle('active');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Pest Card Toggle
+        function togglePestCard(pestId) {
+            const card = document.querySelector(`[onclick="togglePestCard('${pestId}')"]`);
+            const content = document.getElementById(`${pestId}-detail`);
+            
+            // Close other cards
+            document.querySelectorAll('.pest-card').forEach(c => {
+                if(c !== card) {
+                    c.classList.remove('active');
+                    c.querySelector('.pest-detail-content').classList.remove('active');
+                }
+            });
+
+            // Toggle current
+            card.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('enquiryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('enquiryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.add('bg-white/95');
+                navbar.classList.add('backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.remove('bg-white/95');
+                navbar.classList.remove('backdrop-blur-sm');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
