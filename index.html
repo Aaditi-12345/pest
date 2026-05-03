@@ -24,49 +24,21 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#15803d',
-                            700: '#166534',
-                            800: '#14532d',
-                            900: '#052e16',
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#15803d', 700: '#166534', 800: '#14532d', 900: '#052e16',
                         },
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        },
-                        slate: {
-                            850: '#1a2332',
-                            900: '#0f172a',
-                        }
+                        gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+                        slate: { 850: '#1a2332', 900: '#0f172a' }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Poppins', 'sans-serif'] },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                         'slide-in-right': 'slideInRight 0.8s ease-out forwards',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(40px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        }
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(40px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        slideInRight: { '0%': { opacity: '0', transform: 'translateX(40px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } }
                     }
                 }
             }
@@ -87,20 +59,16 @@
         .reveal-delay-4 { transition-delay: 0.4s; }
         .reveal-delay-5 { transition-delay: 0.5s; }
 
-        /* Subtle hero background blending */
-        .hero-bg-overlay {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.65) 0%, rgba(21, 128, 61, 0.35) 50%, transparent 100%);
-        }
+        .hero-overlay { background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(5, 46, 22, 0.7) 100%); }
         
-        .service-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
-        .service-card:hover .card-icon { transform: scale(1.1) rotate(5deg); }
-        .card-icon { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-
-        .pest-detail-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .pest-detail-content.active { max-height: 1200px; opacity: 1; }
-        .pest-card.active .chevron-icon { transform: rotate(180deg); }
-        .pest-card.active { border-color: #15803d; box-shadow: 0 15px 40px rgba(21, 128, 61, 0.15); }
+        .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12); }
+        
+        .service-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); will-change: max-height; }
+        .service-detail.active { max-height: 800px; }
+        
+        .chevron { transition: transform 0.3s ease; }
+        .chevron.rotate { transform: rotate(180deg); }
 
         .mobile-sticky-btn { box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12); }
         .floating-call-btn { animation: float 3s ease-in-out infinite; }
@@ -116,31 +84,19 @@
         ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #14532d, #16a34a); }
 
         .nav-link { position: relative; }
-        .nav-link::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
-            background: #15803d; transition: width 0.3s ease;
-        }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #15803d; transition: width 0.3s ease; }
         .nav-link:hover::after { width: 100%; }
 
         .process-line { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #e2e8f0; z-index: 0; }
         @media (max-width: 768px) { .process-line { display: none; } }
 
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .shimmer-btn {
-            background: linear-gradient(90deg, #15803d 0%, #22c55e 50%, #15803d 100%);
-            background-size: 200% 100%;
-            animation: shimmer 3s linear infinite;
-        }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .shimmer-btn { background: linear-gradient(90deg, #15803d 0%, #22c55e 50%, #15803d 100%); background-size: 200% 100%; animation: shimmer 3s linear infinite; }
 
         .testimonial-card { transition: all 0.3s ease; }
         .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
 
-        input:focus, select:focus, textarea:focus {
-            box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15);
-        }
+        input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15); }
     </style>
 </head>
 <body class="font-sans text-slate-700 antialiased bg-white">
@@ -149,7 +105,7 @@
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300 border-b border-slate-100" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-xl shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3">
                     <img src="images/logo.png" alt="EcoShield Pest Services" class="h-10 w-auto">
                 </div>
                 
@@ -158,31 +114,20 @@
                     <a href="#services" class="nav-link text-slate-600 hover:text-primary-700 font-medium transition">Services</a>
                     <a href="#process" class="nav-link text-slate-600 hover:text-primary-700 font-medium transition">How It Works</a>
                     <a href="#offers" class="nav-link text-slate-600 hover:text-primary-700 font-medium transition flex items-center gap-1">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-500 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
-                        </span>
+                        <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-500 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span></span>
                         Offers
                     </a>
                     <a href="#reviews" class="nav-link text-slate-600 hover:text-primary-700 font-medium transition">Reviews</a>
                     <div class="flex items-center gap-3 ml-4">
-                        <button onclick="openEnquiryModal()" class="shimmer-btn text-white px-6 py-3 rounded-full font-semibold transition shadow-lg hover:shadow-primary-500/40 flex items-center gap-2 text-sm">
-                            <i class="fa-regular fa-paper-plane"></i> Free Quote
-                        </button>
-                        <a href="tel:0416013145" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg flex items-center gap-2 text-sm">
-                            <i class="fa-solid fa-phone"></i> 0416 013 145
-                        </a>
+                        <button onclick="openEnquiryModal()" class="shimmer-btn text-white px-6 py-3 rounded-full font-semibold transition shadow-lg hover:shadow-primary-500/40 flex items-center gap-2 text-sm"><i class="fa-regular fa-paper-plane"></i> Free Quote</button>
+                        <a href="tel:0416013145" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg flex items-center gap-2 text-sm"><i class="fa-solid fa-phone"></i> 0416 013 145</a>
                     </div>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center gap-3">
-                    <a href="tel:0416013145" class="bg-primary-600 text-white p-3 rounded-full shadow-md">
-                        <i class="fa-solid fa-phone"></i>
-                    </a>
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary-700 focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
+                    <a href="tel:0416013145" class="bg-primary-600 text-white p-3 rounded-full shadow-md"><i class="fa-solid fa-phone"></i></a>
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary-700 focus:outline-none p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
                 </div>
             </div>
         </div>
@@ -192,18 +137,11 @@
             <div class="px-4 pt-4 pb-8 space-y-1">
                 <a href="#services" class="mobile-nav-link block px-4 py-3.5 text-slate-700 font-medium hover:bg-primary-50 hover:text-primary-700 rounded-xl transition">Services</a>
                 <a href="#process" class="mobile-nav-link block px-4 py-3.5 text-slate-700 font-medium hover:bg-primary-50 hover:text-primary-700 rounded-xl transition">How It Works</a>
-                <a href="#offers" class="mobile-nav-link block px-4 py-3.5 text-slate-700 font-medium hover:bg-primary-50 hover:text-primary-700 rounded-xl transition flex items-center gap-2">
-                    <span class="w-2 h-2 bg-gold-500 rounded-full"></span>
-                    Special Offers
-                </a>
+                <a href="#offers" class="mobile-nav-link block px-4 py-3.5 text-slate-700 font-medium hover:bg-primary-50 hover:text-primary-700 rounded-xl transition flex items-center gap-2"><span class="w-2 h-2 bg-gold-500 rounded-full"></span> Special Offers</a>
                 <a href="#reviews" class="mobile-nav-link block px-4 py-3.5 text-slate-700 font-medium hover:bg-primary-50 hover:text-primary-700 rounded-xl transition">Reviews</a>
                 <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
-                    <button onclick="openEnquiryModal()" class="block w-full text-center bg-primary-600 text-white px-4 py-3.5 rounded-xl font-bold transition shadow-md">
-                        <i class="fa-regular fa-paper-plane mr-2"></i> Get Free Quote
-                    </button>
-                    <a href="tel:0416013145" class="block w-full text-center bg-slate-900 text-white px-4 py-3.5 rounded-xl font-bold transition">
-                        <i class="fa-solid fa-phone mr-2"></i> Call 0416 013 145
-                    </a>
+                    <button onclick="openEnquiryModal()" class="block w-full text-center bg-primary-600 text-white px-4 py-3.5 rounded-xl font-bold transition shadow-md"><i class="fa-regular fa-paper-plane mr-2"></i> Get Free Quote</button>
+                    <a href="tel:0416013145" class="block w-full text-center bg-slate-900 text-white px-4 py-3.5 rounded-xl font-bold transition"><i class="fa-solid fa-phone mr-2"></i> Call 0416 013 145</a>
                 </div>
             </div>
         </div>
@@ -212,28 +150,21 @@
     <!-- Hero Section -->
     <section class="relative pt-20 pb-20 md:pt-28 md:pb-32 lg:pt-36 lg:pb-40 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="images/hero-bg.jpg" alt="EcoShield service vehicle on Gold Coast" class="w-full h-full object-cover opacity-75">
-            <div class="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-primary-900/40 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/20"></div>
+            <img src="images/hero-bg.jpg" alt="EcoShield service vehicle on Gold Coast" class="w-full h-full object-cover opacity-80">
+            <div class="absolute inset-0 hero-overlay"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/30"></div>
         </div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="text-center lg:text-left">
-                    <!-- Logo Display on Home Page -->
-                    <div class="mb-8 animate-fade-in-up flex justify-center lg:justify-start">
-                        <div class="bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/50">
-                            <img src="images/logo.png" alt="EcoShield Pest Services" class="h-20 md:h-28 w-auto">
-                        </div>
-                    </div>
-                    
                     <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-6 animate-fade-in-up">
                         <i class="fa-solid fa-star text-gold-400"></i>
                         <span class="text-white text-sm font-semibold tracking-wide">Rated 4.9/5 by 500+ Gold Coast Locals</span>
                     </div>
                     
                     <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-[1.1] mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
-                        Professional <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300">Pest Control</span> on the Gold Coast
+                        Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300">Sustainable</span> Solution for Pest-Free Living
                     </h1>
                     
                     <p class="text-lg md:text-xl text-slate-200 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style="animation-delay: 0.2s;">
@@ -241,9 +172,8 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.3s;">
-                        <button onclick="openEnquiryModal()" class="shimmer-btn text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-2xl hover:shadow-primary-500/40 flex items-center justify-center gap-3 group">
-                            Get Free Quote
-                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        <button onclick="openEnquiryModal()" class="bg-primary-600 hover:bg-primary-700 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-2xl hover:shadow-primary-500/40 flex items-center justify-center gap-3 group">
+                            Get Free Quote <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                         </button>
                         <a href="tel:0416013145" class="bg-white hover:bg-slate-50 text-slate-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-2xl flex items-center justify-center gap-3">
                             <i class="fa-solid fa-phone text-primary-600"></i> Call Now
@@ -251,24 +181,9 @@
                     </div>
                     
                     <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-slate-300 text-sm font-medium justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.4s;">
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-check text-white text-[10px]"></i>
-                            </div>
-                            Licensed & Insured
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-check text-white text-[10px]"></i>
-                            </div>
-                            Eco-Safe Products
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-check text-white text-[10px]"></i>
-                            </div>
-                            Same-Day Service
-                        </div>
+                        <div class="flex items-center gap-2"><div class="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center"><i class="fa-solid fa-check text-white text-[10px]"></i></div> Licensed & Insured</div>
+                        <div class="flex items-center gap-2"><div class="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center"><i class="fa-solid fa-check text-white text-[10px]"></i></div> Eco-Safe Products</div>
+                        <div class="flex items-center gap-2"><div class="w-5 h-5 bg-primary-500 rounded-full flex items-center justify-center"><i class="fa-solid fa-check text-white text-[10px]"></i></div> Same-Day Service</div>
                     </div>
                 </div>
 
@@ -276,13 +191,8 @@
                 <div class="hidden lg:block animate-slide-in-right" style="animation-delay: 0.4s;">
                     <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/20">
                         <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-bolt"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-slate-900 text-lg">Instant Quote</h3>
-                                <p class="text-xs text-slate-500">Response within 1 hour</p>
-                            </div>
+                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600"><i class="fa-solid fa-bolt"></i></div>
+                            <div><h3 class="font-heading font-bold text-slate-900 text-lg">Instant Quote</h3><p class="text-xs text-slate-500">Response within 1 hour</p></div>
                         </div>
                         <form onsubmit="event.preventDefault(); handleFormSubmit(this);">
                             <div class="space-y-4">
@@ -290,26 +200,13 @@
                                 <input type="tel" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="Phone Number">
                                 <select required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm appearance-none cursor-pointer">
                                     <option value="" disabled selected>Select Pest Type</option>
-                                    <option>General Pest Control</option>
-                                    <option>Ants</option>
-                                    <option>Cockroaches</option>
-                                    <option>Spiders</option>
-                                    <option>Rodents</option>
-                                    <option>Fleas</option>
-                                    <option>Wasps/Bees</option>
-                                    <option>Termites</option>
-                                    <option>Other</option>
+                                    <option>General Pest Control</option><option>Ants</option><option>Cockroaches</option><option>Spiders</option><option>Rodents</option><option>Fleas</option><option>Wasps/Bees</option><option>Termites</option><option>Other</option>
                                 </select>
                                 <textarea rows="2" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm resize-none" placeholder="Brief description of your pest issue..."></textarea>
-                                <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
-                                    <i class="fa-regular fa-paper-plane"></i>
-                                    Request Free Quote
-                                </button>
+                                <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2"><i class="fa-regular fa-paper-plane"></i> Request Free Quote</button>
                             </div>
                         </form>
-                        <p class="text-center text-xs text-slate-400 mt-4 flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-lock"></i> Your information is 100% secure
-                        </p>
+                        <p class="text-center text-xs text-slate-400 mt-4 flex items-center justify-center gap-1"><i class="fa-solid fa-lock"></i> Your information is 100% secure</p>
                     </div>
                 </div>
             </div>
@@ -321,32 +218,20 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="trust-badge flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3">
-                        <i class="fa-solid fa-leaf text-xl"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-slate-900">100% Eco-Friendly</h3>
-                    <p class="text-xs text-slate-500 mt-1">Safe for pets & children</p>
+                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3"><i class="fa-solid fa-leaf text-xl"></i></div>
+                    <h3 class="font-heading font-bold text-slate-900">100% Eco-Friendly</h3><p class="text-xs text-slate-500 mt-1">Safe for pets & children</p>
                 </div>
                 <div class="trust-badge flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3">
-                        <i class="fa-solid fa-clock text-xl"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-slate-900">Same-Day Service</h3>
-                    <p class="text-xs text-slate-500 mt-1">Rapid response guaranteed</p>
+                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3"><i class="fa-solid fa-clock text-xl"></i></div>
+                    <h3 class="font-heading font-bold text-slate-900">Same-Day Service</h3><p class="text-xs text-slate-500 mt-1">Rapid response guaranteed</p>
                 </div>
                 <div class="trust-badge flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3">
-                        <i class="fa-solid fa-certificate text-xl"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-slate-900">Licensed Experts</h3>
-                    <p class="text-xs text-slate-500 mt-1">10+ years experience</p>
+                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3"><i class="fa-solid fa-certificate text-xl"></i></div>
+                    <h3 class="font-heading font-bold text-slate-900">Licensed Experts</h3><p class="text-xs text-slate-500 mt-1">10+ years experience</p>
                 </div>
                 <div class="trust-badge flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3">
-                        <i class="fa-solid fa-shield-heart text-xl"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-slate-900">Service Warranty</h3>
-                    <p class="text-xs text-slate-500 mt-1">Guaranteed results</p>
+                    <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-3"><i class="fa-solid fa-shield-heart text-xl"></i></div>
+                    <h3 class="font-heading font-bold text-slate-900">Service Warranty</h3><p class="text-xs text-slate-500 mt-1">Guaranteed results</p>
                 </div>
             </div>
         </div>
@@ -354,16 +239,10 @@
 
     <!-- Special Offers Section -->
     <section id="offers" class="py-20 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-600 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-white rounded-full translate-y-1/2"></div>
-        </div>
-        
+        <div class="absolute inset-0 opacity-10"><div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full -translate-y-1/2"></div><div class="absolute bottom-0 right-1/4 w-72 h-72 bg-white rounded-full translate-y-1/2"></div></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14 reveal">
-                <div class="inline-flex items-center gap-2 bg-gold-500 text-white font-bold px-5 py-2 rounded-full mb-5 shadow-lg">
-                    <i class="fa-solid fa-fire"></i> LIMITED TIME OFFER
-                </div>
+                <div class="inline-flex items-center gap-2 bg-gold-500 text-white font-bold px-5 py-2 rounded-full mb-5 shadow-lg"><i class="fa-solid fa-fire"></i> LIMITED TIME OFFER</div>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">Affordable Pest Control Packages</h2>
                 <p class="text-primary-200 text-lg max-w-2xl mx-auto">Professional eco-friendly pest control at unbeatable prices. Book today and protect your home!</p>
             </div>
@@ -371,175 +250,221 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Offer 1 -->
                 <div class="reveal reveal-delay-1 bg-white rounded-3xl p-8 shadow-2xl hover:scale-[1.02] transition-transform duration-300">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-heading font-bold text-slate-900">Small Home / Apartment</h3>
-                            <p class="text-slate-500 text-sm mt-1">Up to 3 bedrooms</p>
-                        </div>
-                        <div class="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm">
-                            SAVE 20%
-                        </div>
-                    </div>
-                    <div class="flex items-baseline gap-3 mb-8">
-                        <span class="text-6xl font-heading font-bold text-primary-600">$159</span>
-                        <span class="text-slate-400 line-through text-xl">$199</span>
-                    </div>
+                    <div class="flex justify-between items-start mb-6"><div><h3 class="text-2xl font-heading font-bold text-slate-900">Small Home / Apartment</h3><p class="text-slate-500 text-sm mt-1">Up to 3 bedrooms</p></div><div class="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm">SAVE 20%</div></div>
+                    <div class="flex items-baseline gap-3 mb-8"><span class="text-6xl font-heading font-bold text-primary-600">$159</span><span class="text-slate-400 line-through text-xl">$199</span></div>
                     <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">General pest spray (ants, spiders, cockroaches)</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Interior & exterior treatment</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Pet & kid safe products</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Warranty included</span>
-                        </li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">General pest spray (ants, spiders, cockroaches)</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Interior & exterior treatment</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Pet & kid safe products</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Warranty included</span></li>
                     </ul>
-                    <button onclick="openEnquiryModal()" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition shadow-lg hover:shadow-primary-500/30 flex items-center justify-center gap-2 group">
-                        Book Now - $159
-                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                    </button>
+                    <button onclick="openEnquiryModal()" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl transition shadow-lg hover:shadow-primary-500/30 flex items-center justify-center gap-2 group">Book Now - $159 <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i></button>
                 </div>
 
                 <!-- Offer 2 -->
                 <div class="reveal reveal-delay-2 bg-white rounded-3xl p-8 shadow-2xl hover:scale-[1.02] transition-transform duration-300 relative border-2 border-gold-500">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-500 text-white font-bold px-6 py-2 rounded-full text-sm shadow-lg">
-                        <i class="fa-solid fa-crown mr-1"></i> MOST POPULAR
-                    </div>
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-heading font-bold text-slate-900">Large Home</h3>
-                            <p class="text-slate-500 text-sm mt-1">4+ bedrooms</p>
-                        </div>
-                        <div class="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm">
-                            SAVE 25%
-                        </div>
-                    </div>
-                    <div class="flex items-baseline gap-3 mb-8">
-                        <span class="text-6xl font-heading font-bold text-primary-600">$199</span>
-                        <span class="text-slate-400 line-through text-xl">$269</span>
-                    </div>
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-500 text-white font-bold px-6 py-2 rounded-full text-sm shadow-lg"><i class="fa-solid fa-crown mr-1"></i> MOST POPULAR</div>
+                    <div class="flex justify-between items-start mb-6"><div><h3 class="text-2xl font-heading font-bold text-slate-900">Large Home</h3><p class="text-slate-500 text-sm mt-1">4+ bedrooms</p></div><div class="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm">SAVE 25%</div></div>
+                    <div class="flex items-baseline gap-3 mb-8"><span class="text-6xl font-heading font-bold text-primary-600">$199</span><span class="text-slate-400 line-through text-xl">$269</span></div>
                     <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Complete general pest spray</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Full interior & exterior coverage</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Pet & kid safe eco products</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Extended warranty</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-600">
-                            <i class="fa-solid fa-circle-check text-primary-500"></i>
-                            <span class="text-sm">Free follow-up inspection</span>
-                        </li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Complete general pest spray</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Full interior & exterior coverage</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Pet & kid safe eco products</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Extended warranty</span></li>
+                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-circle-check text-primary-500"></i><span class="text-sm">Free follow-up inspection</span></li>
                     </ul>
-                    <button onclick="openEnquiryModal()" class="w-full bg-gold-500 hover:bg-gold-600 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2 group">
-                        Book Now - $199
-                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                    </button>
+                    <button onclick="openEnquiryModal()" class="w-full bg-gold-500 hover:bg-gold-600 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2 group">Book Now - $199 <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i></button>
                 </div>
             </div>
-
-            <div class="text-center mt-10 reveal">
-                <p class="text-primary-100 text-lg">
-                    <i class="fa-solid fa-phone mr-2"></i>
-                    Call <a href="tel:0416013145" class="font-bold underline hover:text-white transition">0416 013 145</a> to claim your offer today!
-                </p>
-            </div>
+            <div class="text-center mt-10 reveal"><p class="text-primary-100 text-lg"><i class="fa-solid fa-phone mr-2"></i> Call <a href="tel:0416013145" class="font-bold underline hover:text-white transition">0416 013 145</a> to claim your offer today!</p></div>
         </div>
     </section>
 
-    <!-- Free Consultation Section -->
-    <section class="py-20 lg:py-28 bg-white">
+    <!-- Clean Services Section -->
+    <section id="services" class="py-20 lg:py-28 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal">
-                    <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-6 text-sm">
-                        <i class="fa-solid fa-gift"></i> FREE CONSULTATION
-                    </div>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6 leading-tight">Custom Treatment Plans for Your Home</h2>
-                    <p class="text-slate-600 text-lg mb-10 leading-relaxed">
-                        Every property is unique, and so is our approach. We provide free inspections and develop custom treatment plans tailored to your specific pest problems.
-                    </p>
-                    
-                    <div class="space-y-8">
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-magnifying-glass text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Free Property Inspection</h4>
-                                <p class="text-slate-600 leading-relaxed">Our experts thoroughly inspect your property to identify pest entry points and infestation levels at no cost.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-clipboard-list text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Custom Treatment Plan</h4>
-                                <p class="text-slate-600 leading-relaxed">We create a tailored plan based on pest type, infestation severity, and your property's unique characteristics.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-leaf text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Eco-Friendly Methods</h4>
-                                <p class="text-slate-600 leading-relaxed">All treatments use environmentally safe products that protect your family, pets, and the local ecosystem.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-shield-cat text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Safe for Kids & Pets</h4>
-                                <p class="text-slate-600 leading-relaxed">Our products are carefully selected to be non-toxic and safe once dry, giving you complete peace of mind.</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">OUR SERVICES</div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Complete Pest Protection</h2>
+                <p class="text-slate-600 text-lg">Click any service to see treatment details, pricing, and book instantly.</p>
+            </div>
 
-                    <div class="mt-10 flex flex-wrap gap-4">
-                        <button onclick="openEnquiryModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-full transition shadow-lg hover:shadow-primary-500/30 flex items-center gap-2 group">
-                            Book Free Inspection
-                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Ants -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/ants.jpg" alt="Ant Control" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Ant Control</h3>
+                                <p class="text-white/80 text-sm">Eliminate colonies fast</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button onclick="toggleService('ants')" class="w-full flex items-center justify-between text-primary-600 font-semibold text-sm group">
+                            <span>View Treatment Details</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
                         </button>
-                        <a href="tel:0416013145" class="bg-white border-2 border-slate-200 text-slate-700 hover:border-primary-600 hover:text-primary-700 font-bold py-4 px-8 rounded-full transition flex items-center gap-2">
-                            <i class="fa-solid fa-phone"></i> 0416 013 145
-                        </a>
+                        <div id="ants" class="service-detail">
+                            <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
+                                <p class="text-slate-600 text-sm">Targeted gel baits and barrier sprays that eliminate entire colonies, not just visible ants.</p>
+                                <ul class="text-sm text-slate-600 space-y-1 pl-4 list-disc">
+                                    <li>Safe for kitchens & pantries</li>
+                                    <li>30-day guarantee</li>
+                                    <li>Prevents re-infestation</li>
+                                </ul>
+                                <button onclick="openEnquiryModal()" class="w-full mt-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-2.5 rounded-xl transition text-sm">Get Quote</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="reveal reveal-delay-2 relative">
-                    <div class="absolute -inset-4 bg-gradient-to-br from-primary-100 to-primary-50 rounded-3xl transform rotate-3 -z-10"></div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10acbab1b-be57-4f90-b30d-95ab13b04d6a.png" alt="Pest control technician consulting with homeowner" class="rounded-2xl shadow-xl w-full h-64 object-cover mt-8">
-                        <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1fcf92554-7461-43a3-b206-7389bcea6291.png" alt="Professional pest inspection" class="rounded-2xl shadow-xl w-full h-64 object-cover">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center text-white">
-                                <i class="fa-solid fa-star text-xl"></i>
-                            </div>
+
+                <!-- Cockroaches -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/cockroaches.jpg" alt="Cockroach Control" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
                             <div>
-                                <p class="font-heading font-bold text-slate-900 text-2xl">4.9/5</p>
-                                <p class="text-slate-500 text-xs">Google Rating</p>
+                                <h3 class="text-xl font-heading font-bold text-white">Cockroach Control</h3>
+                                <p class="text-white/80 text-sm">Fast, odorless elimination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button onclick="toggleService('cockroaches')" class="w-full flex items-center justify-between text-primary-600 font-semibold text-sm group">
+                            <span>View Treatment Details</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </button>
+                        <div id="cockroaches" class="service-detail">
+                            <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
+                                <p class="text-slate-600 text-sm">Residual sprays and gel baits targeting hiding spots, drains, and wall voids.</p>
+                                <ul class="text-sm text-slate-600 space-y-1 pl-4 list-disc">
+                                    <li>Odorless & pet-safe</li>
+                                    <li>48-hour results</li>
+                                    <li>Full property coverage</li>
+                                </ul>
+                                <button onclick="openEnquiryModal()" class="w-full mt-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-2.5 rounded-xl transition text-sm">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spiders -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/spiders.jpg" alt="Spider Control" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Spider Control</h3>
+                                <p class="text-white/80 text-sm">Web removal & protection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button onclick="toggleService('spiders')" class="w-full flex items-center justify-between text-primary-600 font-semibold text-sm group">
+                            <span>View Treatment Details</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </button>
+                        <div id="spiders" class="service-detail">
+                            <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
+                                <p class="text-slate-600 text-sm">Complete web removal, exterior barrier treatment, and roof/subfloor spraying.</p>
+                                <ul class="text-sm text-slate-600 space-y-1 pl-4 list-disc">
+                                    <li>Targets Redbacks & Huntsmans</li>
+                                    <li>3-month protection</li>
+                                    <li>Family & pet safe</li>
+                                </ul>
+                                <button onclick="openEnquiryModal()" class="w-full mt-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-2.5 rounded-xl transition text-sm">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rodents -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/rodents.jpg" alt="Rodent Control" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Rodent Control</h3>
+                                <p class="text-white/80 text-sm">Humane trapping & exclusion</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button onclick="toggleService('rodents')" class="w-full flex items-center justify-between text-primary-600 font-semibold text-sm group">
+                            <span>View Treatment Details</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </button>
+                        <div id="rodents" class="service-detail">
+                            <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
+                                <p class="text-slate-600 text-sm">Strategic trapping, entry point sealing, and sanitization to prevent return.</p>
+                                <ul class="text-sm text-slate-600 space-y-1 pl-4 list-disc">
+                                    <li>Humane & effective</li>
+                                    <li>Entry proofing included</li>
+                                    <li>Disinfection service</li>
+                                </ul>
+                                <button onclick="openEnquiryModal()" class="w-full mt-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-2.5 rounded-xl transition text-sm">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fleas -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/fleas.jpg" alt="Flea Control" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Flea Control</h3>
+                                <p class="text-white/80 text-sm">Life-cycle elimination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button onclick="toggleService('fleas')" class="w-full flex items-center justify-between text-primary-600 font-semibold text-sm group">
+                            <span>View Treatment Details</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </button>
+                        <div id="fleas" class="service-detail">
+                            <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
+                                <p class="text-slate-600 text-sm">Carpet & upholstery treatment, outdoor area spraying, and growth regulator application.</p>
+                                <ul class="text-sm text-slate-600 space-y-1 pl-4 list-disc">
+                                    <li>Breaks breeding cycle</li>
+                                    <li>Pet & child safe</li>
+                                    <li>Follow-up included</li>
+                                </ul>
+                                <button onclick="openEnquiryModal()" class="w-full mt-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-2.5 rounded-xl transition text-sm">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wasps -->
+                <div class="service-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/wasps.jpg" alt="Wasp Removal" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Wasp & Bee Removal</h3>
+                                <p class="text-white/80 text-sm">Safe nest elimination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button onclick="toggleService('wasps')" class="w-full flex items-center justify-between text-primary-600 font-semibold text-sm group">
+                            <span>View Treatment Details</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </button>
+                        <div id="wasps" class="service-detail">
+                            <div class="pt-4 space-y-3 border-t border-slate-100 mt-4">
+                                <p class="text-slate-600 text-sm">Professional nest removal, targeted spraying, and prevention treatment.</p>
+                                <ul class="text-sm text-slate-600 space-y-1 pl-4 list-disc">
+                                    <li>Same-day service</li>
+                                    <li>Roof & wall cavities</li>
+                                    <li>Guaranteed removal</li>
+                                </ul>
+                                <button onclick="openEnquiryModal()" class="w-full mt-3 bg-primary-600 hover:bg-primary-700 text-white font-bold py-2.5 rounded-xl transition text-sm">Get Quote</button>
                             </div>
                         </div>
                     </div>
@@ -548,660 +473,24 @@
         </div>
     </section>
 
-   <!-- Services Section -->
-<section id="services" class="py-20 lg:py-28 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-            <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
-                OUR SERVICES
-            </div>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Complete Pest Protection</h2>
-            <p class="text-slate-600 text-lg">Click on any pest type below to learn more about our eco-safe treatment process and pricing.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Services Section -->
-<section id="services" class="py-20 lg:py-28 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-            <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
-                OUR SERVICES
-            </div>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Complete Pest Protection</h2>
-            <p class="text-slate-600 text-lg">Click on any pest type below to learn more about our eco-safe treatment process and pricing.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Ants -->
-            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('ants')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/ants.jpg" alt="Ant control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Ant Control</h4>
-                        <p class="text-sm text-white/90">Eliminate colonies</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="ants-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Ants can quickly infest your home, contaminating food and creating unsightly trails. Colonies can have thousands of workers with hidden nests.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Thorough inspection to locate nests and trails</li>
-                                    <li>Application of eco-friendly gel baits</li>
-                                    <li>Barrier treatment around entry points</li>
-                                    <li>Follow-up inspection if needed</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Visible reduction within 24-48 hours. Complete colony elimination in 5-7 days with warranty coverage.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cockroaches -->
-            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('cockroaches')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/cockroaches.jpg" alt="Cockroach control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Cockroach Control</h4>
-                        <p class="text-sm text-white/90">Fast elimination</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="cockroaches-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Cockroaches spread bacteria, trigger allergies, and reproduce rapidly. German and American roaches are common in Gold Coast homes.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Identify species and harborage areas</li>
-                                    <li>Apply odorless residual spray to surfaces</li>
-                                    <li>Place gel baits in cracks and crevices</li>
-                                    <li>Treat outdoor areas to prevent re-entry</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Significant reduction within 24 hours. Complete elimination in 1-2 weeks with warranty.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Spiders -->
-            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('spiders')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/spiders.jpg" alt="Spider control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Spider Control</h4>
-                        <p class="text-sm text-white/90">Web removal & protection</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="spiders-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Spiders including Huntsmans and Redbacks can invade homes. Most are harmless but they create webs and can be frightening for families.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Remove existing webs from all areas</li>
-                                    <li>Apply residual spray to interior surfaces</li>
-                                    <li>Treat exterior perimeter and entry points</li>
-                                    <li>Focus on roof voids and subfloor areas</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Immediate web removal. Residual protection kills spiders on contact. Full warranty included.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Rodents -->
-            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('rodents')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/rodents.jpg" alt="Rodent control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Rodent Control</h4>
-                        <p class="text-sm text-white/90">Humane trapping & exclusion</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="rodents-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Rats and mice cause property damage, contaminate food, and spread diseases. They can squeeze through tiny gaps and multiply quickly.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Inspect for entry points and activity signs</li>
-                                    <li>Set humane traps in strategic locations</li>
-                                    <li>Seal entry points to prevent re-entry</li>
-                                    <li>Remove and dispose of captured rodents</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Traps checked within 48 hours. Most infestations resolved in 1-2 weeks. Proofing provides long-term protection.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fleas -->
-            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('fleas')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/fleas.jpg" alt="Flea control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Flea Control</h4>
-                        <p class="text-sm text-white/90">Life cycle elimination</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="fleas-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Fleas cause itchy bites for humans and pets. A single female can lay hundreds of eggs, creating rapid infestations in carpets and pet bedding.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Treat all carpets and soft furnishings</li>
-                                    <li>Apply growth regulator to break life cycle</li>
-                                    <li>Treat outdoor areas where pets rest</li>
-                                    <li>Follow-up treatment if necessary</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Adult fleas killed within hours. Eggs and larvae eliminated over 2-3 weeks. Complete control with warranty.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wasps -->
-            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('wasps')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/wasps.jpg" alt="Wasp and bee removal service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Wasp & Bee Removal</h4>
-                        <p class="text-sm text-white/90">Safe nest elimination</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="wasps-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Wasps and bees can build nests in roofs, walls, and trees. Stings can be dangerous, especially for those with allergies. Nests grow rapidly in summer.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Assess nest location and accessibility</li>
-                                    <li>Apply targeted treatment at dusk/dawn</li>
-                                    <li>Remove nest after insects are eliminated</li>
-                                    <li>Treat area to prevent rebuilding</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Nest activity stops within 24 hours. Complete removal same day or next visit. Guaranteed elimination.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-            <!-- Ants -->
-            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('ants')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/ants.jpg" alt="Ant control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Ant Control</h4>
-                        <p class="text-sm text-white/90">Eliminate colonies</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="ants-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Ants can quickly infest your home, contaminating food and creating unsightly trails. Colonies can have thousands of workers with hidden nests.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Thorough inspection to locate nests and trails</li>
-                                    <li>Application of eco-friendly gel baits</li>
-                                    <li>Barrier treatment around entry points</li>
-                                    <li>Follow-up inspection if needed</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Visible reduction within 24-48 hours. Complete colony elimination in 5-7 days with warranty coverage.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cockroaches -->
-            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('cockroaches')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/cockroaches.jpg" alt="Cockroach control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Cockroach Control</h4>
-                        <p class="text-sm text-white/90">Fast elimination</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="cockroaches-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Cockroaches spread bacteria, trigger allergies, and reproduce rapidly. German and American roaches are common in Gold Coast homes.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Identify species and harborage areas</li>
-                                    <li>Apply odorless residual spray to surfaces</li>
-                                    <li>Place gel baits in cracks and crevices</li>
-                                    <li>Treat outdoor areas to prevent re-entry</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Significant reduction within 24 hours. Complete elimination in 1-2 weeks with warranty.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Spiders -->
-            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('spiders')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/spiders.jpg" alt="Spider control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Spider Control</h4>
-                        <p class="text-sm text-white/90">Web removal & protection</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="spiders-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Spiders including Huntsmans and Redbacks can invade homes. Most are harmless but they create webs and can be frightening for families.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Remove existing webs from all areas</li>
-                                    <li>Apply residual spray to interior surfaces</li>
-                                    <li>Treat exterior perimeter and entry points</li>
-                                    <li>Focus on roof voids and subfloor areas</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Immediate web removal. Residual protection kills spiders on contact. Full warranty included.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Rodents -->
-            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('rodents')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/rodents.jpg" alt="Rodent control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Rodent Control</h4>
-                        <p class="text-sm text-white/90">Humane trapping & exclusion</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="rodents-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Rats and mice cause property damage, contaminate food, and spread diseases. They can squeeze through tiny gaps and multiply quickly.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Inspect for entry points and activity signs</li>
-                                    <li>Set humane traps in strategic locations</li>
-                                    <li>Seal entry points to prevent re-entry</li>
-                                    <li>Remove and dispose of captured rodents</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Traps checked within 48 hours. Most infestations resolved in 1-2 weeks. Proofing provides long-term protection.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fleas -->
-            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('fleas')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/fleas.jpg" alt="Flea control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Flea Control</h4>
-                        <p class="text-sm text-white/90">Life cycle elimination</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="fleas-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Fleas cause itchy bites for humans and pets. A single female can lay hundreds of eggs, creating rapid infestations in carpets and pet bedding.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Treat all carpets and soft furnishings</li>
-                                    <li>Apply growth regulator to break life cycle</li>
-                                    <li>Treat outdoor areas where pets rest</li>
-                                    <li>Follow-up treatment if necessary</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Adult fleas killed within hours. Eggs and larvae eliminated over 2-3 weeks. Complete control with warranty.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wasps -->
-            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('wasps')">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images/wasps.jpg" alt="Wasp and bee removal service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h4 class="text-xl font-heading font-bold">Wasp & Bee Removal</h4>
-                        <p class="text-sm text-white/90">Safe nest elimination</p>
-                    </div>
-                </div>
-                <div class="p-7">
-                    <div id="wasps-detail" class="pest-detail-content">
-                        <div class="grid gap-6">
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                </h5>
-                                <p class="text-slate-600 text-sm leading-relaxed">Wasps and bees can build nests in roofs, walls, and trees. Stings can be dangerous, especially for those with allergies. Nests grow rapidly in summer.</p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                </h5>
-                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                    <li>Assess nest location and accessibility</li>
-                                    <li>Apply targeted treatment at dusk/dawn</li>
-                                    <li>Remove nest after insects are eliminated</li>
-                                    <li>Treat area to prevent rebuilding</li>
-                                </ol>
-                            </div>
-                            <div class="bg-primary-50 p-4 rounded-xl">
-                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                </h5>
-                                <p class="text-slate-600 text-sm">Nest activity stops within 24 hours. Complete removal same day or next visit. Guaranteed elimination.</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex gap-3">
-                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    <!-- How It Works / Process Section -->
+    <!-- How It Works -->
     <section id="process" class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
-                    HOW IT WORKS
-                </div>
+                <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">HOW IT WORKS</div>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Our Simple 4-Step Process</h2>
                 <p class="text-slate-600 text-lg">We make pest control easy, safe, and stress-free from start to finish.</p>
             </div>
-
             <div class="relative">
                 <div class="hidden md:block process-line"></div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-                    <!-- Step 1 -->
-                    <div class="reveal reveal-delay-1 text-center">
-                        <div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative">
-                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">1</span>
-                            <i class="fa-solid fa-magnifying-glass text-3xl"></i>
-                        </div>
-                        <h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Inspection</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">We conduct a thorough inspection of your property to identify pests, entry points, and infestation levels.</p>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="reveal reveal-delay-2 text-center">
-                        <div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative">
-                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">2</span>
-                            <i class="fa-solid fa-clipboard-list text-3xl"></i>
-                        </div>
-                        <h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Treatment Plan</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">Based on findings, we create a custom treatment plan with transparent pricing and no hidden fees.</p>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="reveal reveal-delay-3 text-center">
-                        <div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative">
-                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">3</span>
-                            <i class="fa-solid fa-spray-can-sparkles text-3xl"></i>
-                        </div>
-                        <h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Safe Application</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">Our licensed technicians apply eco-friendly treatments safely, protecting your family and pets.</p>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="reveal reveal-delay-4 text-center">
-                        <div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative">
-                            <span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">4</span>
-                            <i class="fa-solid fa-rotate-left text-3xl"></i>
-                        </div>
-                        <h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Follow-Up</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">We follow up to ensure complete elimination and provide warranty-backed ongoing protection.</p>
-                    </div>
+                    <div class="reveal reveal-delay-1 text-center"><div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative"><span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">1</span><i class="fa-solid fa-magnifying-glass text-3xl"></i></div><h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Inspection</h4><p class="text-slate-600 text-sm leading-relaxed">We conduct a thorough inspection of your property to identify pests, entry points, and infestation levels.</p></div>
+                    <div class="reveal reveal-delay-2 text-center"><div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative"><span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">2</span><i class="fa-solid fa-clipboard-list text-3xl"></i></div><h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Treatment Plan</h4><p class="text-slate-600 text-sm leading-relaxed">Based on findings, we create a custom treatment plan with transparent pricing and no hidden fees.</p></div>
+                    <div class="reveal reveal-delay-3 text-center"><div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative"><span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">3</span><i class="fa-solid fa-spray-can-sparkles text-3xl"></i></div><h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Safe Application</h4><p class="text-slate-600 text-sm leading-relaxed">Our licensed technicians apply eco-friendly treatments safely, protecting your family and pets.</p></div>
+                    <div class="reveal reveal-delay-4 text-center"><div class="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl relative"><span class="absolute -top-3 -right-3 w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">4</span><i class="fa-solid fa-rotate-left text-3xl"></i></div><h4 class="font-heading font-bold text-slate-900 text-xl mb-3">Follow-Up</h4><p class="text-slate-600 text-sm leading-relaxed">We follow up to ensure complete elimination and provide warranty-backed ongoing protection.</p></div>
                 </div>
             </div>
-
-            <div class="text-center mt-14 reveal">
-                <button onclick="openEnquiryModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-10 rounded-full transition shadow-lg hover:shadow-primary-500/30 flex items-center gap-2 mx-auto group">
-                    Start Your Treatment Today
-                    <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                </button>
-            </div>
+            <div class="text-center mt-14 reveal"><button onclick="openEnquiryModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-10 rounded-full transition shadow-lg hover:shadow-primary-500/30 flex items-center gap-2 mx-auto group">Start Your Treatment Today <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i></button></div>
         </div>
     </section>
 
@@ -1210,115 +499,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal">
-                    <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-6 text-sm">
-                        WHY ECOSHIELD?
-                    </div>
+                    <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-6 text-sm">WHY ECOSHIELD?</div>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6 leading-tight">Gold Coast's Most Trusted Local Experts</h2>
-                    <p class="text-slate-600 text-lg mb-10 leading-relaxed">
-                        We don't just spray chemicals; we solve problems. Our integrated pest management approach ensures your home is safe, clean, and pest-free for the long term.
-                    </p>
-                    
+                    <p class="text-slate-600 text-lg mb-10 leading-relaxed">We don't just spray chemicals; we solve problems. Our integrated pest management approach ensures your home is safe, clean, and pest-free for the long term.</p>
                     <div class="space-y-6">
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-user-shield text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Licensed & Trained Technicians</h4>
-                                <p class="text-slate-600 leading-relaxed">Our team undergoes rigorous training to handle any pest situation safely and effectively.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-paw text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Kid & Pet Safe Treatments</h4>
-                                <p class="text-slate-600 leading-relaxed">We prioritize non-toxic, eco-friendly solutions that protect your loved ones.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-clock-rotate-left text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Same-Day & 24/7 Support</h4>
-                                <p class="text-slate-600 leading-relaxed">Pests don't wait, and neither do we. We offer rapid response times for urgent issues.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-5 group">
-                            <div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                <i class="fa-solid fa-dollar-sign text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Affordable & Transparent Pricing</h4>
-                                <p class="text-slate-600 leading-relaxed">No hidden fees or surprise charges. Get upfront quotes with flexible payment options.</p>
-                            </div>
-                        </div>
+                        <div class="flex gap-5 group"><div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300"><i class="fa-solid fa-user-shield text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Licensed & Trained Technicians</h4><p class="text-slate-600 leading-relaxed">Our team undergoes rigorous training to handle any pest situation safely and effectively.</p></div></div>
+                        <div class="flex gap-5 group"><div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300"><i class="fa-solid fa-paw text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Kid & Pet Safe Treatments</h4><p class="text-slate-600 leading-relaxed">We prioritize non-toxic, eco-friendly solutions that protect your loved ones.</p></div></div>
+                        <div class="flex gap-5 group"><div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300"><i class="fa-solid fa-clock-rotate-left text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Same-Day & 24/7 Support</h4><p class="text-slate-600 leading-relaxed">Pests don't wait, and neither do we. We offer rapid response times for urgent issues.</p></div></div>
+                        <div class="flex gap-5 group"><div class="flex-shrink-0 w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300"><i class="fa-solid fa-dollar-sign text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 text-lg mb-1">Affordable & Transparent Pricing</h4><p class="text-slate-600 leading-relaxed">No hidden fees or surprise charges. Get upfront quotes with flexible payment options.</p></div></div>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-4">
-                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1fcf92554-7461-43a3-b206-7389bcea6291.png" alt="Female pest control technician" class="rounded-2xl shadow-lg w-full h-56 object-cover">
-                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10acbab1b-be57-4f90-b30d-95ab13b04d6a.png" alt="Technician consulting with family" class="rounded-2xl shadow-lg w-full h-40 object-cover">
-                        </div>
-                        <div class="space-y-4 mt-8">
-                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/11aa2c5ac-f695-4424-bfe7-5228a49212b5.png" alt="Male technician inspecting property" class="rounded-2xl shadow-lg w-full h-40 object-cover">
-                            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10c53d836-fd8e-4c36-8539-0f669acf86ae.png" alt="Technician applying treatment" class="rounded-2xl shadow-lg w-full h-56 object-cover">
-                        </div>
+                        <div class="space-y-4"><img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1fcf92554-7461-43a3-b206-7389bcea6291.png" alt="Technician" class="rounded-2xl shadow-lg w-full h-56 object-cover"><img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10acbab1b-be57-4f90-b30d-95ab13b04d6a.png" alt="Consultation" class="rounded-2xl shadow-lg w-full h-40 object-cover"></div>
+                        <div class="space-y-4 mt-8"><img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/11aa2c5ac-f695-4424-bfe7-5228a49212b5.png" alt="Inspection" class="rounded-2xl shadow-lg w-full h-40 object-cover"><img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/10c53d836-fd8e-4c36-8539-0f669acf86ae.png" alt="Treatment" class="rounded-2xl shadow-lg w-full h-56 object-cover"></div>
                     </div>
-                    <div class="mt-6 bg-primary-600 rounded-2xl p-6 text-white flex items-center justify-between shadow-xl">
-                        <div>
-                            <p class="font-heading font-bold text-2xl">500+</p>
-                            <p class="text-primary-200 text-sm">5-Star Reviews</p>
-                        </div>
-                        <div class="flex text-gold-400 text-xl">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us / Stats -->
-    <section id="about" class="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-gold-500 rounded-full blur-3xl"></div>
-        </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-primary-300 font-semibold px-4 py-2 rounded-full mb-6 text-sm">
-                    ABOUT ECOSHIELD
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">Locally Owned & Operated</h2>
-                <p class="text-slate-300 text-lg leading-relaxed">
-                    EcoShield Pest Control Services has been proudly serving the Gold Coast community for over a decade. We started with a simple mission: to provide effective pest control without compromising the health of families or the environment.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 reveal">
-                <div class="text-center p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
-                    <div class="text-5xl font-heading font-bold text-primary-400 mb-2">10+</div>
-                    <div class="text-slate-400 font-medium">Years Experience</div>
-                </div>
-                <div class="text-center p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
-                    <div class="text-5xl font-heading font-bold text-primary-400 mb-2">500+</div>
-                    <div class="text-slate-400 font-medium">5-Star Reviews</div>
-                </div>
-                <div class="text-center p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
-                    <div class="text-5xl font-heading font-bold text-primary-400 mb-2">100%</div>
-                    <div class="text-slate-400 font-medium">Satisfaction Guaranteed</div>
-                </div>
-                <div class="text-center p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
-                    <div class="text-5xl font-heading font-bold text-primary-400 mb-2">24/7</div>
-                    <div class="text-slate-400 font-medium">Local Support</div>
+                    <div class="mt-6 bg-primary-600 rounded-2xl p-6 text-white flex items-center justify-between shadow-xl"><div><p class="font-heading font-bold text-2xl">500+</p><p class="text-primary-200 text-sm">5-Star Reviews</p></div><div class="flex text-gold-400 text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
                 </div>
             </div>
         </div>
@@ -1327,206 +523,11 @@
     <!-- Testimonials -->
     <section id="reviews" class="py-20 lg:py-28 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
-                    TESTIMONIALS
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-4">What Our Customers Say</h2>
-                <p class="text-slate-600 text-lg">Real reviews from Gold Coast locals</p>
-            </div>
-            
+            <div class="text-center mb-16 reveal"><div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">TESTIMONIALS</div><h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-4">What Our Customers Say</h2><p class="text-slate-600 text-lg">Real reviews from Gold Coast locals</p></div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="testimonial-card reveal reveal-delay-1 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="flex text-gold-500 mb-4 text-lg">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 mb-6 leading-relaxed italic">"Had a massive spider problem before summer. EcoShield came out the same day, treated the whole house, and I haven't seen a single spider since. Highly recommend!"</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">SJ</div>
-                        <div>
-                            <div class="font-heading font-bold text-slate-900">Sarah Jenkins</div>
-                            <div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Burleigh Heads</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 2 -->
-                <div class="testimonial-card reveal reveal-delay-2 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="flex text-gold-500 mb-4 text-lg">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 mb-6 leading-relaxed italic">"Very professional technician. He explained everything clearly and made sure our cats were safe during the treatment. Great service, fair price."</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">MT</div>
-                        <div>
-                            <div class="font-heading font-bold text-slate-900">Mike Thompson</div>
-                            <div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Southport</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="testimonial-card reveal reveal-delay-3 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="flex text-gold-500 mb-4 text-lg">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 mb-6 leading-relaxed italic">"Found ants in the kitchen pantry. Called EcoShield in the morning, they were here by afternoon. Problem solved instantly. Best pest control on the Coast."</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">EL</div>
-                        <div>
-                            <div class="font-heading font-bold text-slate-900">Emma Lewis</div>
-                            <div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Robina</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 4 -->
-                <div class="testimonial-card reveal reveal-delay-4 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="flex text-gold-500 mb-4 text-lg">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 mb-6 leading-relaxed italic">"We had a wasp nest in the roof cavity. EcoShield removed it safely and quickly. The technician was friendly and professional. Will definitely use again."</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">DR</div>
-                        <div>
-                            <div class="font-heading font-bold text-slate-900">David Reynolds</div>
-                            <div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Surfers Paradise</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 5 -->
-                <div class="testimonial-card reveal reveal-delay-5 bg-white p-8 rounded-3xl shadow-sm border border-slate-100 md:col-span-2 lg:col-span-2 lg:max-w-xl lg:mx-auto">
-                    <div class="flex text-gold-500 mb-4 text-lg">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 mb-6 leading-relaxed italic">"After trying DIY solutions for months, we finally called EcoShield. They identified the source of our cockroach problem and eliminated it completely. The eco-friendly products gave us peace of mind with our kids. Couldn't be happier!"</p>
-                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">JW</div>
-                        <div>
-                            <div class="font-heading font-bold text-slate-900">Jessica Walker</div>
-                            <div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Broadbeach</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Areas -->
-    <section class="py-16 lg:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl overflow-hidden shadow-xl border border-slate-100">
-                <div class="p-8 md:p-12 reveal">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                        <div>
-                            <h3 class="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-3 flex items-center gap-3">
-                                <i class="fa-solid fa-map-location-dot text-primary-600"></i>
-                                Areas We Service
-                            </h3>
-                            <p class="text-slate-600 max-w-2xl">We cover the entire Gold Coast region, from the northern suburbs down to the border. Same-day service available in all areas.</p>
-                        </div>
-                        <button onclick="openEnquiryModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-full transition shadow-md flex items-center gap-2 whitespace-nowrap self-start">
-                            Check Your Suburb
-                            <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="px-8 md:px-12 pb-8 md:pb-12">
-                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Surfers Paradise</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Broadbeach</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Southport</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Robina</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Burleigh Heads</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Coolangatta</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Varsity Lakes</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Mermaid Beach</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Nerang</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Runaway Bay</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Palm Beach</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Currumbin</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Helensvale</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Hope Island</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>Coombabah</span></div>
-                        <div class="flex items-center gap-2 text-slate-600 bg-white px-3 py-2 rounded-lg text-sm shadow-sm"><i class="fa-solid fa-location-dot text-primary-500 text-xs"></i><span>+ All GC Suburbs</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
-                    FAQ
-                </div>
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900">Frequently Asked Questions</h2>
-            </div>
-            
-            <div class="space-y-4 reveal">
-                <!-- FAQ 1 -->
-                <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq1')">
-                        <span class="font-heading font-bold text-slate-800 pr-4">Are your treatments safe for kids and pets?</span>
-                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq1"></i>
-                        </div>
-                    </button>
-                    <div id="faq1" class="faq-content max-h-0 overflow-hidden transition-all duration-500">
-                        <div class="px-6 pb-5 text-slate-600 leading-relaxed">
-                            Yes, absolutely. We prioritize eco-friendly, low-toxicity treatments that are safe for children and pets once dry. We always provide specific safety instructions before we begin, and our products are certified by Australian standards for residential use.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq2')">
-                        <span class="font-heading font-bold text-slate-800 pr-4">Do you offer same-day service?</span>
-                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq2"></i>
-                        </div>
-                    </button>
-                    <div id="faq2" class="faq-content max-h-0 overflow-hidden transition-all duration-500">
-                        <div class="px-6 pb-5 text-slate-600 leading-relaxed">
-                            Yes, we offer same-day service for most urgent pest problems. Contact us early in the day to check availability. We reserve limited spots each day specifically for emergency callouts.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq3')">
-                        <span class="font-heading font-bold text-slate-800 pr-4">Do you provide warranties?</span>
-                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq3"></i>
-                        </div>
-                    </button>
-                    <div id="faq3" class="faq-content max-h-0 overflow-hidden transition-all duration-500">
-                        <div class="px-6 pb-5 text-slate-600 leading-relaxed">
-                            Yes, most of our general pest control services come with a warranty. If the pests return within the warranty period, we will return and retreat at no extra cost. Warranty terms vary by service type and will be explained upfront.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
-                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleAccordion('faq4')">
-                        <span class="font-heading font-bold text-slate-800 pr-4">How long does the treatment last?</span>
-                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-chevron-down text-primary-600 transition-transform duration-300" id="icon-faq4"></i>
-                        </div>
-                    </button>
-                    <div id="faq4" class="faq-content max-h-0 overflow-hidden transition-all duration-500">
-                        <div class="px-6 pb-5 text-slate-600 leading-relaxed">
-                            Our residual treatments provide long-lasting protection depending on the pest type and environmental conditions. General pest treatments typically last 3-6 months. We recommend annual inspections for ongoing protection and peace of mind.
-                        </div>
-                    </div>
-                </div>
+                <div class="testimonial-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100"><div class="flex text-gold-500 mb-4 text-lg"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-slate-600 mb-6 leading-relaxed italic">"Had a massive spider problem before summer. EcoShield came out the same day, treated the whole house, and I haven't seen a single spider since. Highly recommend!"</p><div class="flex items-center gap-4 pt-4 border-t border-slate-100"><div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">SJ</div><div><div class="font-heading font-bold text-slate-900">Sarah Jenkins</div><div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Burleigh Heads</div></div></div></div>
+                <div class="testimonial-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100"><div class="flex text-gold-500 mb-4 text-lg"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-slate-600 mb-6 leading-relaxed italic">"Very professional technician. He explained everything clearly and made sure our cats were safe during the treatment. Great service, fair price."</p><div class="flex items-center gap-4 pt-4 border-t border-slate-100"><div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">MT</div><div><div class="font-heading font-bold text-slate-900">Mike Thompson</div><div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Southport</div></div></div></div>
+                <div class="testimonial-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100"><div class="flex text-gold-500 mb-4 text-lg"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-slate-600 mb-6 leading-relaxed italic">"Found ants in the kitchen pantry. Called EcoShield in the morning, they were here by afternoon. Problem solved instantly. Best pest control on the Coast."</p><div class="flex items-center gap-4 pt-4 border-t border-slate-100"><div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-lg">EL</div><div><div class="font-heading font-bold text-slate-900">Emma Lewis</div><div class="text-xs text-slate-500"><i class="fa-solid fa-location-dot mr-1"></i>Robina</div></div></div></div>
             </div>
         </div>
     </section>
@@ -1536,130 +537,28 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
                 <div class="reveal">
-                    <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-6 text-sm">
-                        <i class="fa-regular fa-paper-plane"></i> GET IN TOUCH
-                    </div>
+                    <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-6 text-sm"><i class="fa-regular fa-paper-plane"></i> GET IN TOUCH</div>
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6 leading-tight">Get Your Free Quote Today</h2>
                     <p class="text-slate-600 text-lg mb-10 leading-relaxed">Fill out the form or call us directly. We respond to all enquiries within 1 hour during business hours.</p>
-                    
                     <div class="space-y-6 mb-10">
-                        <div class="flex items-start gap-5 group">
-                            <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-phone text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 mb-1">Call Us Now</h4>
-                                <a href="tel:0416013145" class="text-primary-600 font-bold text-lg hover:underline">0416 013 145</a>
-                                <p class="text-sm text-slate-500 mt-1">24/7 Customer Support</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 group">
-                            <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-                                <i class="fa-regular fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 mb-1">Email Us</h4>
-                                <a href="mailto:ecoshieldservices.au@gmail.com" class="text-primary-600 font-bold hover:underline break-all">ecoshieldservices.au@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-5 group">
-                            <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-location-dot text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-slate-900 mb-1">Service Area</h4>
-                                <p class="text-slate-600">Gold Coast & Surrounding Suburbs, QLD</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-6 rounded-2xl shadow-xl text-white flex items-center gap-4">
-                        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-bolt text-gold-400 text-2xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-heading font-bold text-lg">Same-Day Service Available</h4>
-                            <p class="text-primary-100 text-sm">Contact us today to secure your spot. Limited availability each day!</p>
-                        </div>
+                        <div class="flex items-start gap-5 group"><div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors"><i class="fa-solid fa-phone text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 mb-1">Call Us Now</h4><a href="tel:0416013145" class="text-primary-600 font-bold text-lg hover:underline">0416 013 145</a><p class="text-sm text-slate-500 mt-1">24/7 Customer Support</p></div></div>
+                        <div class="flex items-start gap-5 group"><div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors"><i class="fa-regular fa-envelope text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 mb-1">Email Us</h4><a href="mailto:ecoshieldservices.au@gmail.com" class="text-primary-600 font-bold hover:underline break-all">ecoshieldservices.au@gmail.com</a></div></div>
+                        <div class="flex items-start gap-5 group"><div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors"><i class="fa-solid fa-location-dot text-xl"></i></div><div><h4 class="font-heading font-bold text-slate-900 mb-1">Service Area</h4><p class="text-slate-600">Gold Coast & Surrounding Suburbs, QLD</p></div></div>
                     </div>
                 </div>
-
                 <div class="reveal reveal-delay-2">
                     <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
-                        <div class="flex items-center gap-3 mb-8">
-                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-heading font-bold text-slate-900 text-lg">Request Free Quote</h3>
-                                <p class="text-xs text-slate-500">We'll respond within 1 hour</p>
-                            </div>
-                        </div>
+                        <div class="flex items-center gap-3 mb-8"><div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600"><i class="fa-solid fa-paper-plane"></i></div><div><h3 class="font-heading font-bold text-slate-900 text-lg">Request Free Quote</h3><p class="text-xs text-slate-500">We'll respond within 1 hour</p></div></div>
                         <form onsubmit="event.preventDefault(); handleFormSubmit(this);" class="space-y-5">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 mb-2">Name *</label>
-                                    <input type="text" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="Your Name">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 mb-2">Phone *</label>
-                                    <input type="tel" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="04XX XXX XXX">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Email *</label>
-                                <input type="email" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="your@email.com">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Pest Type *</label>
-                                <select required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm appearance-none cursor-pointer bg-white">
-                                    <option value="" disabled selected>Select a pest type</option>
-                                    <option>General Pest Control</option>
-                                    <option>Ants</option>
-                                    <option>Cockroaches</option>
-                                    <option>Spiders</option>
-                                    <option>Rodents (Rats/Mice)</option>
-                                    <option>Fleas</option>
-                                    <option>Wasps/Bees</option>
-                                    <option>Termites</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                                <textarea rows="4" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm resize-none" placeholder="Tell us about your pest problem..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-primary-500/30 transition flex items-center justify-center gap-2 group">
-                                Request Free Quote
-                                <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                            </button>
-                            <p class="text-center text-xs text-slate-400 flex items-center justify-center gap-1">
-                                <i class="fa-solid fa-lock"></i> Your information is secure and will never be shared
-                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5"><div><label class="block text-sm font-medium text-slate-700 mb-2">Name *</label><input type="text" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="Your Name"></div><div><label class="block text-sm font-medium text-slate-700 mb-2">Phone *</label><input type="tel" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="04XX XXX XXX"></div></div>
+                            <div><label class="block text-sm font-medium text-slate-700 mb-2">Email *</label><input type="email" required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="your@email.com"></div>
+                            <div><label class="block text-sm font-medium text-slate-700 mb-2">Pest Type *</label><select required class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm appearance-none cursor-pointer bg-white"><option value="" disabled selected>Select a pest type</option><option>General Pest Control</option><option>Ants</option><option>Cockroaches</option><option>Spiders</option><option>Rodents (Rats/Mice)</option><option>Fleas</option><option>Wasps/Bees</option><option>Termites</option><option>Other</option></select></div>
+                            <div><label class="block text-sm font-medium text-slate-700 mb-2">Message</label><textarea rows="4" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm resize-none" placeholder="Tell us about your pest problem..."></textarea></div>
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-primary-500/30 transition flex items-center justify-center gap-2 group">Request Free Quote <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i></button>
+                            <p class="text-center text-xs text-slate-400 flex items-center justify-center gap-1"><i class="fa-solid fa-lock"></i> Your information is secure and will never be shared</p>
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-16 lg:py-20 bg-gradient-to-r from-slate-900 to-primary-900 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-1/4 w-80 h-80 bg-primary-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-gold-500 rounded-full blur-3xl"></div>
-        </div>
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">Ready to Live Pest-Free?</h2>
-            <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">Join 500+ Gold Coast families who trust EcoShield for safe, effective pest control. Same-day service available.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="openEnquiryModal()" class="bg-primary-600 hover:bg-primary-500 text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-xl flex items-center justify-center gap-3 group">
-                    Get Your Free Quote
-                    <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                </button>
-                <a href="tel:0416013145" class="bg-white hover:bg-slate-50 text-slate-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-xl flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-phone text-primary-600"></i> Call 0416 013 145
-                </a>
             </div>
         </div>
     </section>
@@ -1669,149 +568,37 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 <div class="sm:col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-3 mb-5 group">
-                        <img src="images/logo.png" alt="EcoShield Pest Services" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105">
-                    </div>
+                    <div class="flex items-center gap-3 mb-5"><img src="images/logo.png" alt="EcoShield Pest Services" class="h-10 w-auto"></div>
                     <p class="text-sm text-slate-400 mb-6 leading-relaxed">Eco-friendly pest control solutions for Gold Coast homes and businesses. Licensed, insured & locally owned.</p>
-                    <div class="flex space-x-3">
-                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition" aria-label="Google Business">
-                            <i class="fa-brands fa-google"></i>
-                        </a>
-                    </div>
+                    <div class="flex space-x-3"><a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition" aria-label="Google Business"><i class="fa-brands fa-google"></i></a></div>
                 </div>
-                
-                <div>
-                    <h4 class="text-white font-heading font-bold mb-5">Quick Links</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Home</a></li>
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Services</a></li>
-                        <li><a href="#offers" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Special Offers</a></li>
-                        <li><a href="#reviews" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Reviews</a></li>
-                        <li><a href="#contact" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-heading font-bold mb-5">Our Services</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Ant Control</a></li>
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Cockroach Control</a></li>
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Spider Control</a></li>
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Rodent Control</a></li>
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Flea Control</a></li>
-                        <li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Wasp Removal</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-heading font-bold mb-5">Contact Us</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-primary-500"></i>
-                            <a href="tel:0416013145" class="hover:text-primary-400 transition">0416 013 145</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-regular fa-envelope text-primary-500"></i>
-                            <a href="mailto:ecoshieldservices.au@gmail.com" class="hover:text-primary-400 transition break-all">ecoshieldservices.au@gmail.com</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-location-dot text-primary-500 mt-1"></i>
-                            <span>Gold Coast, QLD, Australia</span>
-                        </li>
-                    </ul>
-                    <div class="mt-5 p-4 bg-slate-800 rounded-xl">
-                        <div class="flex items-center gap-2 mb-1">
-                            <i class="fa-solid fa-clock text-gold-500"></i>
-                            <span class="font-bold text-white text-sm">Business Hours</span>
-                        </div>
-                        <p class="text-xs text-slate-400">Mon-Sun: 7:00 AM - 7:00 PM<br>24/7 Emergency Service</p>
-                    </div>
-                </div>
+                <div><h4 class="text-white font-heading font-bold mb-5">Quick Links</h4><ul class="space-y-3 text-sm"><li><a href="#" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Home</a></li><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Services</a></li><li><a href="#offers" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Special Offers</a></li><li><a href="#reviews" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Reviews</a></li><li><a href="#contact" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Contact</a></li></ul></div>
+                <div><h4 class="text-white font-heading font-bold mb-5">Our Services</h4><ul class="space-y-3 text-sm"><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Ant Control</a></li><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Cockroach Control</a></li><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Spider Control</a></li><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Rodent Control</a></li><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Flea Control</a></li><li><a href="#services" class="hover:text-primary-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-primary-500"></i>Wasp Removal</a></li></ul></div>
+                <div><h4 class="text-white font-heading font-bold mb-5">Contact Us</h4><ul class="space-y-3 text-sm"><li class="flex items-center gap-3"><i class="fa-solid fa-phone text-primary-500"></i><a href="tel:0416013145" class="hover:text-primary-400 transition">0416 013 145</a></li><li class="flex items-center gap-3"><i class="fa-regular fa-envelope text-primary-500"></i><a href="mailto:ecoshieldservices.au@gmail.com" class="hover:text-primary-400 transition break-all">ecoshieldservices.au@gmail.com</a></li><li class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-primary-500 mt-1"></i><span>Gold Coast, QLD, Australia</span></li></ul><div class="mt-5 p-4 bg-slate-800 rounded-xl"><div class="flex items-center gap-2 mb-1"><i class="fa-solid fa-clock text-gold-500"></i><span class="font-bold text-white text-sm">Business Hours</span></div><p class="text-xs text-slate-400">Mon-Sun: 7:00 AM - 7:00 PM<br>24/7 Emergency Service</p></div></div>
             </div>
-            
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
-                <p>&copy; 2024 EcoShield Pest Control Services. All rights reserved. ABN 41 772 828 116</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition">Sitemap</a>
-                </div>
-            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4"><p>&copy; 2024 EcoShield Pest Control Services. All rights reserved. ABN 41 772 828 116</p><div class="flex space-x-6"><a href="#" class="hover:text-white transition">Privacy Policy</a><a href="#" class="hover:text-white transition">Terms of Service</a><a href="#" class="hover:text-white transition">Sitemap</a></div></div>
         </div>
     </footer>
 
     <!-- Mobile Sticky Bottom Bar -->
-    <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 md:hidden z-40 mobile-sticky-btn flex gap-3">
-        <a href="tel:0416013145" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center font-bold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition">
-            <i class="fa-solid fa-phone"></i> Call Now
-        </a>
-        <button onclick="openEnquiryModal()" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white text-center font-bold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition">
-            <i class="fa-regular fa-paper-plane"></i> Free Quote
-        </button>
-    </div>
+    <div class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 md:hidden z-40 mobile-sticky-btn flex gap-3"><a href="tel:0416013145" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white text-center font-bold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition"><i class="fa-solid fa-phone"></i> Call Now</a><button onclick="openEnquiryModal()" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white text-center font-bold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition"><i class="fa-regular fa-paper-plane"></i> Free Quote</button></div>
 
     <!-- Floating Call Button (Desktop) -->
-    <a href="tel:0416013145" class="hidden md:flex fixed bottom-6 right-6 bg-primary-600 hover:bg-primary-700 text-white py-4 px-6 rounded-full shadow-2xl z-40 floating-call-btn transition transform hover:scale-105 items-center gap-3 group">
-        <i class="fa-solid fa-phone text-lg"></i>
-        <span class="font-bold">Call Now</span>
-        <span class="bg-white/20 px-2 py-0.5 rounded-full text-xs">0416 013 145</span>
-    </a>
+    <a href="tel:0416013145" class="hidden md:flex fixed bottom-6 right-6 bg-primary-600 hover:bg-primary-700 text-white py-4 px-6 rounded-full shadow-2xl z-40 floating-call-btn transition transform hover:scale-105 items-center gap-3 group"><i class="fa-solid fa-phone text-lg"></i><span class="font-bold">Call Now</span><span class="bg-white/20 px-2 py-0.5 rounded-full text-xs">0416 013 145</span></a>
 
     <!-- Quick Enquiry Modal -->
     <div id="enquiryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <div class="modal-overlay absolute inset-0" onclick="closeEnquiryModal()"></div>
         <div class="relative w-full max-w-lg mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
-            <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-6 flex justify-between items-center">
-                <div>
-                    <h3 class="text-xl font-heading font-bold text-white">Get a Free Quote</h3>
-                    <p class="text-primary-200 text-sm">We'll respond within 1 hour!</p>
-                </div>
-                <button onclick="closeEnquiryModal()" class="text-white hover:text-primary-200 transition w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
+            <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-6 flex justify-between items-center"><div><h3 class="text-xl font-heading font-bold text-white">Get a Free Quote</h3><p class="text-primary-200 text-sm">We'll respond within 1 hour!</p></div><button onclick="closeEnquiryModal()" class="text-white hover:text-primary-200 transition w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-xmark text-xl"></i></button></div>
             <div class="p-6">
                 <form onsubmit="event.preventDefault(); handleFormSubmit(this);" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1.5">Name *</label>
-                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1.5">Phone *</label>
-                        <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="04XX XXX XXX">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1.5">Pest Type *</label>
-                        <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm appearance-none cursor-pointer bg-white">
-                            <option value="" disabled selected>Select a pest type</option>
-                            <option>General Pests</option>
-                            <option>Cockroaches</option>
-                            <option>Ants</option>
-                            <option>Spiders</option>
-                            <option>Rodents</option>
-                            <option>Fleas</option>
-                            <option>Wasps</option>
-                            <option>Termites</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1.5">Message</label>
-                        <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm resize-none" placeholder="Tell us about your pest problem..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-primary-500/30 transition flex items-center justify-center gap-2 group">
-                        Submit Enquiry
-                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                    </button>
-                    <p class="text-center text-xs text-slate-400 flex items-center justify-center gap-1">
-                        <i class="fa-solid fa-lock"></i> Your information is secure and will never be shared
-                    </p>
+                    <div><label class="block text-sm font-medium text-slate-700 mb-1.5">Name *</label><input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="Your Name"></div>
+                    <div><label class="block text-sm font-medium text-slate-700 mb-1.5">Phone *</label><input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm" placeholder="04XX XXX XXX"></div>
+                    <div><label class="block text-sm font-medium text-slate-700 mb-1.5">Pest Type *</label><select required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm appearance-none cursor-pointer bg-white"><option value="" disabled selected>Select a pest type</option><option>General Pests</option><option>Cockroaches</option><option>Ants</option><option>Spiders</option><option>Rodents</option><option>Fleas</option><option>Wasps</option><option>Termites</option><option>Other</option></select></div>
+                    <div><label class="block text-sm font-medium text-slate-700 mb-1.5">Message</label><textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-primary-500 outline-none transition text-sm resize-none" placeholder="Tell us about your pest problem..."></textarea></div>
+                    <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-primary-500/30 transition flex items-center justify-center gap-2 group">Submit Enquiry <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i></button>
+                    <p class="text-center text-xs text-slate-400 flex items-center justify-center gap-1"><i class="fa-solid fa-lock"></i> Your information is secure and will never be shared</p>
                 </form>
             </div>
         </div>
@@ -1819,154 +606,96 @@
 
     <!-- Scripts -->
     <script>
-        // Scroll Reveal Animation
+        // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // Mobile Menu Toggle
+        // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             const icon = mobileMenuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            }
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
         });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a, .mobile-nav-link').forEach(link => {
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-xmark');
                 icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
             });
         });
 
-        // FAQ Accordion
-        function toggleAccordion(faqId) {
-            const content = document.getElementById(faqId);
-            const icon = document.getElementById('icon-' + faqId);
-            const parentItem = content.closest('.faq-item');
+        // Fast Service Toggle
+        function toggleService(id) {
+            const content = document.getElementById(id);
+            const card = content.closest('.service-card');
+            const chevron = card.querySelector('.chevron');
             
-            // Close all other FAQs
-            document.querySelectorAll('.faq-content').forEach(el => {
-                if (el.id !== faqId) {
-                    el.style.maxHeight = '0';
-                    const faqNum = el.id.replace('faq', '');
-                    const otherIcon = document.getElementById('icon-' + el.id);
-                    if (otherIcon) otherIcon.classList.remove('rotate-180');
-                }
-            });
-
-            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                content.style.maxHeight = '0';
-                icon.classList.remove('rotate-180');
-            } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
-                icon.classList.add('rotate-180');
-            }
-        }
-
-        // Pest Card Toggle
-        function togglePestCard(pestId) {
-            const card = document.querySelector(`[onclick="togglePestCard('${pestId}')"]`);
-            const content = document.getElementById(`${pestId}-detail`);
-            
-            // Close other cards
-            document.querySelectorAll('.pest-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('active');
-                    const detail = c.querySelector('.pest-detail-content');
-                    if (detail) detail.classList.remove('active');
+            // Close others
+            document.querySelectorAll('.service-detail').forEach(el => {
+                if(el.id !== id) {
+                    el.classList.remove('active');
+                    el.closest('.service-card').querySelector('.chevron').classList.remove('rotate');
                 }
             });
 
             // Toggle current
-            card.classList.toggle('active');
             content.classList.toggle('active');
+            chevron.classList.toggle('rotate');
         }
 
-        // Modal Functions
+        // Modal
         function openEnquiryModal() {
             const modal = document.getElementById('enquiryModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
-
         function closeEnquiryModal() {
             const modal = document.getElementById('enquiryModal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             document.body.style.overflow = '';
         }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeEnquiryModal(); });
 
-        // Form Submit Handler
+        // Form Handler
         function handleFormSubmit(form) {
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
+            const btn = form.querySelector('button[type="submit"]');
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully!';
-                submitBtn.classList.remove('bg-primary-600', 'hover:bg-primary-700');
-                submitBtn.classList.add('bg-green-600');
-                
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
+                btn.classList.replace('bg-primary-600', 'bg-green-600');
                 setTimeout(() => {
                     form.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.classList.add('bg-primary-600', 'hover:bg-primary-700');
-                    submitBtn.classList.remove('bg-green-600');
-                    submitBtn.disabled = false;
+                    btn.innerHTML = original;
+                    btn.disabled = false;
+                    btn.classList.replace('bg-green-600', 'bg-primary-600');
                     closeEnquiryModal();
-                }, 2000);
-            }, 1500);
+                }, 1500);
+            }, 1200);
         }
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeEnquiryModal();
-            }
-        });
-
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
+        // Navbar Scroll
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
+            document.getElementById('navbar').classList.toggle('shadow-md', window.scrollY > 80);
         });
 
-        // Smooth scroll for anchor links
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const navHeight = navbar.offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                 }
             });
         });
