@@ -87,7 +87,10 @@
         .reveal-delay-4 { transition-delay: 0.4s; }
         .reveal-delay-5 { transition-delay: 0.5s; }
 
-        .hero-overlay { background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(5, 46, 22, 0.75) 100%); }
+        /* Subtle hero background blending */
+        .hero-bg-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.65) 0%, rgba(21, 128, 61, 0.35) 50%, transparent 100%);
+        }
         
         .service-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
@@ -146,8 +149,8 @@
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300 border-b border-slate-100" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-3">
-                    <img src="https://image.qwenlm.ai/public_source/de152029-333f-4a8e-8fe4-d4e010daded3/1173e7c4c-49a1-4e70-9590-d15c44082f0f.png" alt="EcoShield Pest Services Logo" class="h-12 w-auto">
+                <div class="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-xl shadow-sm border border-slate-100">
+                    <img src="images/logo.png" alt="EcoShield Pest Services" class="h-10 w-auto">
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -209,17 +212,19 @@
     <!-- Hero Section -->
     <section class="relative pt-20 pb-20 md:pt-28 md:pb-32 lg:pt-36 lg:pb-40 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://image.qwenlm.ai/public_source/b46bdd9a-2ffa-453b-8365-fcd9e4c6c453/1fcf92554-7461-43a3-b206-7389bcea6291.png" alt="Professional pest control technician servicing a Gold Coast home" class="w-full h-full object-cover">
-            <div class="absolute inset-0 hero-overlay"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/10"></div>
+            <img src="images/hero-bg.jpg" alt="EcoShield service vehicle on Gold Coast" class="w-full h-full object-cover opacity-75">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-primary-900/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/20"></div>
         </div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="text-center lg:text-left">
                     <!-- Logo Display on Home Page -->
-                    <div class="mb-8 animate-fade-in-up">
-                        <img src="https://image.qwenlm.ai/public_source/de152029-333f-4a8e-8fe4-d4e010daded3/1173e7c4c-49a1-4e70-9590-d15c44082f0f.png" alt="EcoShield Pest Services" class="h-32 md:h-40 w-auto mx-auto lg:mx-0">
+                    <div class="mb-8 animate-fade-in-up flex justify-center lg:justify-start">
+                        <div class="bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/50">
+                            <img src="images/logo.png" alt="EcoShield Pest Services" class="h-20 md:h-28 w-auto">
+                        </div>
                     </div>
                     
                     <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-6 animate-fade-in-up">
@@ -1393,8 +1398,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 <div class="sm:col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-3 mb-5">
-                        <img src="https://image.qwenlm.ai/public_source/de152029-333f-4a8e-8fe4-d4e010daded3/1173e7c4c-49a1-4e70-9590-d15c44082f0f.png" alt="EcoShield Pest Services Logo" class="h-12 w-auto">
+                    <div class="flex items-center gap-3 mb-5 group">
+                        <img src="images/logo.png" alt="EcoShield Pest Services" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105">
                     </div>
                     <p class="text-sm text-slate-400 mb-6 leading-relaxed">Eco-friendly pest control solutions for Gold Coast homes and businesses. Licensed, insured & locally owned.</p>
                     <div class="flex space-x-3">
