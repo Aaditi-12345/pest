@@ -548,327 +548,598 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
-                    OUR SERVICES
+   <!-- Services Section -->
+<section id="services" class="py-20 lg:py-28 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
+                OUR SERVICES
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Complete Pest Protection</h2>
+            <p class="text-slate-600 text-lg">Click on any pest type below to learn more about our eco-safe treatment process and pricing.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Services Section -->
+<section id="services" class="py-20 lg:py-28 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full mb-4 text-sm">
+                OUR SERVICES
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Complete Pest Protection</h2>
+            <p class="text-slate-600 text-lg">Click on any pest type below to learn more about our eco-safe treatment process and pricing.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Ants -->
+            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('ants')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/ants.jpg" alt="Ant control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Ant Control</h4>
+                        <p class="text-sm text-white/90">Eliminate colonies</p>
+                    </div>
                 </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-5">Complete Pest Protection</h2>
-                <p class="text-slate-600 text-lg">Click on any pest type below to learn more about our eco-safe treatment process and pricing.</p>
+                <div class="p-7">
+                    <div id="ants-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Ants can quickly infest your home, contaminating food and creating unsightly trails. Colonies can have thousands of workers with hidden nests.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Thorough inspection to locate nests and trails</li>
+                                    <li>Application of eco-friendly gel baits</li>
+                                    <li>Barrier treatment around entry points</li>
+                                    <li>Follow-up inspection if needed</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Visible reduction within 24-48 hours. Complete colony elimination in 5-7 days with warranty coverage.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Ants -->
-                <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('ants')">
-                    <div class="p-7 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="card-icon w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-ant text-2xl"></i>
+            <!-- Cockroaches -->
+            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('cockroaches')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/cockroaches.jpg" alt="Cockroach control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Cockroach Control</h4>
+                        <p class="text-sm text-white/90">Fast elimination</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="cockroaches-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Cockroaches spread bacteria, trigger allergies, and reproduce rapidly. German and American roaches are common in Gold Coast homes.</p>
                             </div>
                             <div>
-                                <h4 class="text-lg font-heading font-bold text-slate-900">Ant Control</h4>
-                                <p class="text-sm text-slate-500">Eliminate colonies</p>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Identify species and harborage areas</li>
+                                    <li>Apply odorless residual spray to surfaces</li>
+                                    <li>Place gel baits in cracks and crevices</li>
+                                    <li>Treat outdoor areas to prevent re-entry</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Significant reduction within 24 hours. Complete elimination in 1-2 weeks with warranty.</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
-                    </div>
-                    <div id="ants-detail" class="pest-detail-content bg-slate-50">
-                        <div class="p-7 pt-0">
-                            <div class="grid gap-6">
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                    </h5>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Ants can quickly infest your home, contaminating food and creating unsightly trails. Colonies can have thousands of workers with hidden nests.</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                    </h5>
-                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                        <li>Thorough inspection to locate nests and trails</li>
-                                        <li>Application of eco-friendly gel baits</li>
-                                        <li>Barrier treatment around entry points</li>
-                                        <li>Follow-up inspection if needed</li>
-                                    </ol>
-                                </div>
-                                <div class="bg-primary-50 p-4 rounded-xl">
-                                    <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                        <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                    </h5>
-                                    <p class="text-slate-600 text-sm">Visible reduction within 24-48 hours. Complete colony elimination in 5-7 days with warranty coverage.</p>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex gap-3">
-                                <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                                <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-solid fa-phone"></i> Call
-                                </a>
-                            </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Cockroaches -->
-                <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('cockroaches')">
-                    <div class="p-7 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="card-icon w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-bug text-2xl"></i>
+            <!-- Spiders -->
+            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('spiders')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/spiders.jpg" alt="Spider control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Spider Control</h4>
+                        <p class="text-sm text-white/90">Web removal & protection</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="spiders-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Spiders including Huntsmans and Redbacks can invade homes. Most are harmless but they create webs and can be frightening for families.</p>
                             </div>
                             <div>
-                                <h4 class="text-lg font-heading font-bold text-slate-900">Cockroach Control</h4>
-                                <p class="text-sm text-slate-500">Fast elimination</p>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Remove existing webs from all areas</li>
+                                    <li>Apply residual spray to interior surfaces</li>
+                                    <li>Treat exterior perimeter and entry points</li>
+                                    <li>Focus on roof voids and subfloor areas</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Immediate web removal. Residual protection kills spiders on contact. Full warranty included.</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
-                    </div>
-                    <div id="cockroaches-detail" class="pest-detail-content bg-slate-50">
-                        <div class="p-7 pt-0">
-                            <div class="grid gap-6">
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                    </h5>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Cockroaches spread bacteria, trigger allergies, and reproduce rapidly. German and American roaches are common in Gold Coast homes.</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                    </h5>
-                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                        <li>Identify species and harborage areas</li>
-                                        <li>Apply odorless residual spray to surfaces</li>
-                                        <li>Place gel baits in cracks and crevices</li>
-                                        <li>Treat outdoor areas to prevent re-entry</li>
-                                    </ol>
-                                </div>
-                                <div class="bg-primary-50 p-4 rounded-xl">
-                                    <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                        <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                    </h5>
-                                    <p class="text-slate-600 text-sm">Significant reduction within 24 hours. Complete elimination in 1-2 weeks with warranty.</p>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex gap-3">
-                                <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                                <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-solid fa-phone"></i> Call
-                                </a>
-                            </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Spiders -->
-                <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('spiders')">
-                    <div class="p-7 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="card-icon w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-spider text-2xl"></i>
+            <!-- Rodents -->
+            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('rodents')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/rodents.jpg" alt="Rodent control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Rodent Control</h4>
+                        <p class="text-sm text-white/90">Humane trapping & exclusion</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="rodents-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Rats and mice cause property damage, contaminate food, and spread diseases. They can squeeze through tiny gaps and multiply quickly.</p>
                             </div>
                             <div>
-                                <h4 class="text-lg font-heading font-bold text-slate-900">Spider Control</h4>
-                                <p class="text-sm text-slate-500">Web removal & protection</p>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Inspect for entry points and activity signs</li>
+                                    <li>Set humane traps in strategic locations</li>
+                                    <li>Seal entry points to prevent re-entry</li>
+                                    <li>Remove and dispose of captured rodents</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Traps checked within 48 hours. Most infestations resolved in 1-2 weeks. Proofing provides long-term protection.</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
-                    </div>
-                    <div id="spiders-detail" class="pest-detail-content bg-slate-50">
-                        <div class="p-7 pt-0">
-                            <div class="grid gap-6">
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                    </h5>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Spiders including Huntsmans and Redbacks can invade homes. Most are harmless but they create webs and can be frightening for families.</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                    </h5>
-                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                        <li>Remove existing webs from all areas</li>
-                                        <li>Apply residual spray to interior surfaces</li>
-                                        <li>Treat exterior perimeter and entry points</li>
-                                        <li>Focus on roof voids and subfloor areas</li>
-                                    </ol>
-                                </div>
-                                <div class="bg-primary-50 p-4 rounded-xl">
-                                    <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                        <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                    </h5>
-                                    <p class="text-slate-600 text-sm">Immediate web removal. Residual protection kills spiders on contact. Full warranty included.</p>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex gap-3">
-                                <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                                <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-solid fa-phone"></i> Call
-                                </a>
-                            </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Rodents -->
-                <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('rodents')">
-                    <div class="p-7 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="card-icon w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-dove text-2xl"></i>
+            <!-- Fleas -->
+            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('fleas')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/fleas.jpg" alt="Flea control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Flea Control</h4>
+                        <p class="text-sm text-white/90">Life cycle elimination</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="fleas-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Fleas cause itchy bites for humans and pets. A single female can lay hundreds of eggs, creating rapid infestations in carpets and pet bedding.</p>
                             </div>
                             <div>
-                                <h4 class="text-lg font-heading font-bold text-slate-900">Rodent Control</h4>
-                                <p class="text-sm text-slate-500">Humane trapping & exclusion</p>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Treat all carpets and soft furnishings</li>
+                                    <li>Apply growth regulator to break life cycle</li>
+                                    <li>Treat outdoor areas where pets rest</li>
+                                    <li>Follow-up treatment if necessary</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Adult fleas killed within hours. Eggs and larvae eliminated over 2-3 weeks. Complete control with warranty.</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
-                    </div>
-                    <div id="rodents-detail" class="pest-detail-content bg-slate-50">
-                        <div class="p-7 pt-0">
-                            <div class="grid gap-6">
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                    </h5>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Rats and mice cause property damage, contaminate food, and spread diseases. They can squeeze through tiny gaps and multiply quickly.</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                    </h5>
-                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                        <li>Inspect for entry points and activity signs</li>
-                                        <li>Set humane traps in strategic locations</li>
-                                        <li>Seal entry points to prevent re-entry</li>
-                                        <li>Remove and dispose of captured rodents</li>
-                                    </ol>
-                                </div>
-                                <div class="bg-primary-50 p-4 rounded-xl">
-                                    <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                        <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                    </h5>
-                                    <p class="text-slate-600 text-sm">Traps checked within 48 hours. Most infestations resolved in 1-2 weeks. Proofing provides long-term protection.</p>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex gap-3">
-                                <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                                <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-solid fa-phone"></i> Call
-                                </a>
-                            </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Fleas -->
-                <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('fleas')">
-                    <div class="p-7 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="card-icon w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-dog text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-heading font-bold text-slate-900">Flea Control</h4>
-                                <p class="text-sm text-slate-500">Life cycle elimination</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
-                    </div>
-                    <div id="fleas-detail" class="pest-detail-content bg-slate-50">
-                        <div class="p-7 pt-0">
-                            <div class="grid gap-6">
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                    </h5>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Fleas cause itchy bites for humans and pets. A single female can lay hundreds of eggs, creating rapid infestations in carpets and pet bedding.</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                    </h5>
-                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                        <li>Treat all carpets and soft furnishings</li>
-                                        <li>Apply growth regulator to break life cycle</li>
-                                        <li>Treat outdoor areas where pets rest</li>
-                                        <li>Follow-up treatment if necessary</li>
-                                    </ol>
-                                </div>
-                                <div class="bg-primary-50 p-4 rounded-xl">
-                                    <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                        <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                    </h5>
-                                    <p class="text-slate-600 text-sm">Adult fleas killed within hours. Eggs and larvae eliminated over 2-3 weeks. Complete control with warranty.</p>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex gap-3">
-                                <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                                <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-solid fa-phone"></i> Call
-                                </a>
-                            </div>
-                        </div>
+            <!-- Wasps -->
+            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('wasps')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/wasps.jpg" alt="Wasp and bee removal service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Wasp & Bee Removal</h4>
+                        <p class="text-sm text-white/90">Safe nest elimination</p>
                     </div>
                 </div>
-
-                <!-- Wasps -->
-                <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('wasps')">
-                    <div class="p-7 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="card-icon w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600">
-                                <i class="fa-solid fa-location-arrow text-2xl"></i>
+                <div class="p-7">
+                    <div id="wasps-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Wasps and bees can build nests in roofs, walls, and trees. Stings can be dangerous, especially for those with allergies. Nests grow rapidly in summer.</p>
                             </div>
                             <div>
-                                <h4 class="text-lg font-heading font-bold text-slate-900">Wasp & Bee Removal</h4>
-                                <p class="text-sm text-slate-500">Safe nest elimination</p>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Assess nest location and accessibility</li>
+                                    <li>Apply targeted treatment at dusk/dawn</li>
+                                    <li>Remove nest after insects are eliminated</li>
+                                    <li>Treat area to prevent rebuilding</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Nest activity stops within 24 hours. Complete removal same day or next visit. Guaranteed elimination.</p>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-down chevron-icon text-primary-600 transition-transform duration-300"></i>
-                    </div>
-                    <div id="wasps-detail" class="pest-detail-content bg-slate-50">
-                        <div class="p-7 pt-0">
-                            <div class="grid gap-6">
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
-                                    </h5>
-                                    <p class="text-slate-600 text-sm leading-relaxed">Wasps and bees can build nests in roofs, walls, and trees. Stings can be dangerous, especially for those with allergies. Nests grow rapidly in summer.</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
-                                    </h5>
-                                    <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
-                                        <li>Assess nest location and accessibility</li>
-                                        <li>Apply targeted treatment at dusk/dawn</li>
-                                        <li>Remove nest after insects are eliminated</li>
-                                        <li>Treat area to prevent rebuilding</li>
-                                    </ol>
-                                </div>
-                                <div class="bg-primary-50 p-4 rounded-xl">
-                                    <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
-                                        <i class="fa-solid fa-clock text-primary-600"></i> Results
-                                    </h5>
-                                    <p class="text-slate-600 text-sm">Nest activity stops within 24 hours. Complete removal same day or next visit. Guaranteed elimination.</p>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex gap-3">
-                                <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
-                                <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                                    <i class="fa-solid fa-phone"></i> Call
-                                </a>
-                            </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+            <!-- Ants -->
+            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('ants')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/ants.jpg" alt="Ant control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Ant Control</h4>
+                        <p class="text-sm text-white/90">Eliminate colonies</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="ants-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Ants can quickly infest your home, contaminating food and creating unsightly trails. Colonies can have thousands of workers with hidden nests.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Thorough inspection to locate nests and trails</li>
+                                    <li>Application of eco-friendly gel baits</li>
+                                    <li>Barrier treatment around entry points</li>
+                                    <li>Follow-up inspection if needed</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Visible reduction within 24-48 hours. Complete colony elimination in 5-7 days with warranty coverage.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Cockroaches -->
+            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('cockroaches')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/cockroaches.jpg" alt="Cockroach control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Cockroach Control</h4>
+                        <p class="text-sm text-white/90">Fast elimination</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="cockroaches-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Cockroaches spread bacteria, trigger allergies, and reproduce rapidly. German and American roaches are common in Gold Coast homes.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Identify species and harborage areas</li>
+                                    <li>Apply odorless residual spray to surfaces</li>
+                                    <li>Place gel baits in cracks and crevices</li>
+                                    <li>Treat outdoor areas to prevent re-entry</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Significant reduction within 24 hours. Complete elimination in 1-2 weeks with warranty.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spiders -->
+            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('spiders')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/spiders.jpg" alt="Spider control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Spider Control</h4>
+                        <p class="text-sm text-white/90">Web removal & protection</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="spiders-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Spiders including Huntsmans and Redbacks can invade homes. Most are harmless but they create webs and can be frightening for families.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Remove existing webs from all areas</li>
+                                    <li>Apply residual spray to interior surfaces</li>
+                                    <li>Treat exterior perimeter and entry points</li>
+                                    <li>Focus on roof voids and subfloor areas</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Immediate web removal. Residual protection kills spiders on contact. Full warranty included.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodents -->
+            <div class="service-card pest-card reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('rodents')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/rodents.jpg" alt="Rodent control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Rodent Control</h4>
+                        <p class="text-sm text-white/90">Humane trapping & exclusion</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="rodents-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Rats and mice cause property damage, contaminate food, and spread diseases. They can squeeze through tiny gaps and multiply quickly.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Inspect for entry points and activity signs</li>
+                                    <li>Set humane traps in strategic locations</li>
+                                    <li>Seal entry points to prevent re-entry</li>
+                                    <li>Remove and dispose of captured rodents</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Traps checked within 48 hours. Most infestations resolved in 1-2 weeks. Proofing provides long-term protection.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fleas -->
+            <div class="service-card pest-card reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('fleas')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/fleas.jpg" alt="Flea control service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Flea Control</h4>
+                        <p class="text-sm text-white/90">Life cycle elimination</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="fleas-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Fleas cause itchy bites for humans and pets. A single female can lay hundreds of eggs, creating rapid infestations in carpets and pet bedding.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Treat all carpets and soft furnishings</li>
+                                    <li>Apply growth regulator to break life cycle</li>
+                                    <li>Treat outdoor areas where pets rest</li>
+                                    <li>Follow-up treatment if necessary</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Adult fleas killed within hours. Eggs and larvae eliminated over 2-3 weeks. Complete control with warranty.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wasps -->
+            <div class="service-card pest-card reveal reveal-delay-3 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 cursor-pointer" onclick="togglePestCard('wasps')">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="images/wasps.jpg" alt="Wasp and bee removal service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-xl font-heading font-bold">Wasp & Bee Removal</h4>
+                        <p class="text-sm text-white/90">Safe nest elimination</p>
+                    </div>
+                </div>
+                <div class="p-7">
+                    <div id="wasps-detail" class="pest-detail-content">
+                        <div class="grid gap-6">
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-gold-500"></i> The Problem
+                                </h5>
+                                <p class="text-slate-600 text-sm leading-relaxed">Wasps and bees can build nests in roofs, walls, and trees. Stings can be dangerous, especially for those with allergies. Nests grow rapidly in summer.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-flask text-primary-600"></i> Treatment Process
+                                </h5>
+                                <ol class="text-slate-600 text-sm space-y-2 list-decimal list-inside">
+                                    <li>Assess nest location and accessibility</li>
+                                    <li>Apply targeted treatment at dusk/dawn</li>
+                                    <li>Remove nest after insects are eliminated</li>
+                                    <li>Treat area to prevent rebuilding</li>
+                                </ol>
+                            </div>
+                            <div class="bg-primary-50 p-4 rounded-xl">
+                                <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                                    <i class="fa-solid fa-clock text-primary-600"></i> Results
+                                </h5>
+                                <p class="text-slate-600 text-sm">Nest activity stops within 24 hours. Complete removal same day or next visit. Guaranteed elimination.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <button onclick="event.stopPropagation(); openEnquiryModal()" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-xl transition text-sm">Get Quote</button>
+                            <a href="tel:0416013145" onclick="event.stopPropagation();" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- How It Works / Process Section -->
     <section id="process" class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
